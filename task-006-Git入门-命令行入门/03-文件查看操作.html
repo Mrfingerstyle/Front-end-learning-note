@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <strong>资料来源 饥人谷</strong><hr>
+
+    <pre>
+        相关的动词缩写 就变成了命令
+        注意 空格 中文符号 进错目录
+        练习命令使用的是bash  不是cmd 
+        统一使用bash
+        ctrl + c中断命令执行
+        
+        增删改查 
+            文件的增删改查
+            cd 改变目录
+            pwd 展示绝对路径
+            ls 显示目录中的内容
+            ls 默认不显示以 . 开头的文件
+            ls 后跟路径 显示对应路径的内容
+            查看文件内容
+                cat 显示文件内容 全查看
+                head 显示文件内容 只显示前10行 查看部分内容 也可以设置查看行数的参数
+                head style.css -n 14
+                tail 显示文件内容 只显示后10行
+                tail style.css -n 14
+                less 显示文件内容 显示一部分文件内容  方向键控制显示位置 jk键也可 模仿vim q退出
+                    如果选中后 按esc 后才能按q取消
+            增加文件
+                创建文件
+                touch 1.txt 创建空文件
+                echo mmp > 4.txt 
+                再写入 会覆盖原来的文件内容
+                echo hi > 4.txt
+                使用 >> 实现追加
+                如果有特殊的内容 
+                echo -e "1\n2" >> 4.txt
+                
+                创建目录
+                    mkdir 
+                    创建多层目录
+                    mkdir -p a/b/c/d/e
+                同时创建多个文件
+                    touch 1.txt 2.txt 
+                同时创建多个目录
+                    mkdir a b c 
+                    mkdir -p a/b/c a/d/c
+                复制文件
+                    cp 1.txt 2.txt 
+                复制目录
+                    mkdir -r a b 
+    </pre>
+</body>
+</html>

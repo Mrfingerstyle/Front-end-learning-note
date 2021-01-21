@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <strong>资料来源 饥人谷</strong><hr>
+
+    <pre>
+        命令执行成功返回0
+        不成功返回非0
+            rm 1.txt && echo 删除成功
+        && 第一条命令成功之后 再执行下一条
+        ; 不管命令执行成功与否 都执行下一条
+
+        把命令变成文件
+            在桌面新建一键搞定文件
+            编写脚本内容
+                mkdir x
+                cd x 
+                touch index.html 
+                touch style.css 
+                touch main.js 
+                echo -e "hello" >> index.html 
+            添加可执行权限
+                chmod +x 一键搞定 Mac需要执行
+            tree x 显示目录结构
+            设置命令的参数
+                mkdir $1
+                cd $1
+                ./一键搞定 demo
+            中文出错 使用英文
+            执行命令 可以使用./一键搞定 也可以使用sh
+            sh 是bash缩写 
+            shebang 是一个注释 加上之后会指定用什么程序运行脚本
+            ./不能省略
+            如果加了path 只用文件名就可以执行
+            
+        命令行的本质就是一个可执行文件
+        windows会先寻找.exe文件
+        找不到.exe 再去找 脚本文件
+        目前学习的是bash脚本文件
+        
+        如果没有把命令加入path 使用的时候要把路径写全
+    </pre>
+</body>
+</html>
