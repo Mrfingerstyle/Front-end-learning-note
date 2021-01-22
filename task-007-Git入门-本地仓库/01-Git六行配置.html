@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <strong>资料来源 饥人谷</strong><hr>
+
+    <pre>
+        Git是开启GitHub的钥匙
+        所有软件都要先配置
+        
+        查看git配置
+        git config --global --list
+
+        windows系统
+        git config --global user.name 你的英文名
+        git config --global user.email 你的邮箱
+        git config --global push.default simple
+        git config --global core.quotepath false
+        git config --global core.editor "code --wait"
+        git config --global core.autocrlf input
+
+        上面的用户名和邮箱跟GitHub没有关系 
+        可以保持一致 也可以不保持一致
+
+        git只是一个命令而已
+        git解决的问题 版本控制
+        git可以回退到之前的某个版本
+
+        git init 初始化
+
+        mkdir demo-1
+        cd demo-1
+        touch index.html
+        touch style.css 
+        git add index.html 
+        git add style.css
+        
+        git add 路径 
+            此处的路径可以是绝对路径 相对路径 . * 
+            选择哪些文件变动需要提交
+        
+        .gitignore 选择哪些变动不需要提交
+            常见不能提交的目录 node_modules .DS_Store .idea .vscode 
+            git status 查看文件状态
+        
+        ls -al 显示所有文件 包含隐藏文件
+        
+        git commit -m 字符串
+        提交 并说明提交理由
+        
+        改动了index.html  添加了一行代码 
+        然后Git add 
+        再使用Git commit -v 然后vim弹出一个文件 首行空白 用户在首行填入了提交说明
+        编写完成 然后vim 退出插入模式 :wq 退出 
+        在命令行显示了刚刚输入的提交说明
+        
+        git log 查看提交的历史及提交说明
+        git commit -v 能帮助用户回顾刚刚做了什么 展示文件的改动内容
+            迫使提交的理由更详细一些
+            建议新人使用
+        git status 查看当前文件状态 有没有改动 未添加或提交 
+        git add . 提交当前整个目录
+        
+        git reset --hard xxxxxx 回退到之前提交的某一个版本
+            xxxxxx是提交号的前6位
+        输入之后 文件回退到第一次提交时的状态
+        再输入 git log 提交信息只有1次
+        
+        git reflog 不止看当前的提交历史 还要看回滚之前的提交历史
+        再次使用git reset 跳转到第二次提交更新的状态 
+        再次使用git reset 跳转到第三次提交更新的状态 
+
+        这也解释了之前每次都要commit 是为了后面的回滚方便
+
+        git log只会显示之前的提交
+        使用 git reflog可以查看所有提交
+        然后用git reset --hard xxxxxx 回退
+
+        运行git reset 之前 确保文件已经提交了 或者忽略
+        不能再Git add未提交状态 否则 会丢失改动的内容
+        
+        总结
+        学习技巧 记笔记
+        git init 就是创建.git 目录
+        
+        场景一 多版本的切换
+        场景二 同时做两个版本以供选择 如何两条线开发
+        复制可以解决很多问题 但是也会引发很多问题
+            例如 复制很多分相似的文件
+        
+        git branch x 
+            属于叫做分支
+            可以创建平行时间线 x
+        
+        git checkout x
+            切换到x分支
+        在master分支修改完文件之后 提交 
+        再切换到x分支 再提交 
+        循环往复 在每个分支编写的代码版本都不同 达到并行开发的目的
+        
+        history 查看命令行历史
+        
+        总结
+            git branch
+            基于当前commit创建一个新的时间线
+            我在哪个分支提交 代码就出现在哪个分支
+            git checkout 
+            用于切换另一个分支
+            当前目录有未提交的代码 只要跟另一个分支不冲突 就不需要理会 
+            如果冲突 可以使用 git stash 也可以合并冲突
+            切分支的时候不影响硬盘上的文件 但是git reset是影响的
+        
+        git branch 显示当前在哪个分支
+        
+        场景三 两个版本都要
+        
+        git merge合并分支
+            有可能有冲突 也有可能没有冲突
+            学会解决的冲突
+
+            现在存在冲突
+            需要先解决冲突 再提交
+            首先 删除master index.html中的插入符号
+            再提交
+
+            git status -sb 查看 哪个哪些文件冲突
+            
+        发现冲突
+            在合并分支的时候 会得到conflict提示 
+        解决冲突
+            依次打开每个文件
+            搜索 ==== 
+            在上下两个部分选择要保存的代码 
+            可以只选上面 也可以只选下面 甚至可以都选
+            删除不要的代码 删除 ==== >>>> <<<< 这些标记
+            git add 对应文件
+            再次 git status -sb 解决下一个文件的冲突 
+            直到没有冲突 运行 git commit 
+            解决冲突之后的commit不用加任何参数
+        
+        删除分支
+            git branch -d x
+            删除分支
+        总结
+            分支可以合并
+                进入要保留的分支 
+                运行git merge x 
+                合并完后删除无用的分支
+            合并时冲突怎么办 
+                解决冲突即可
+                然后git commit 使用默认的commit message 
+        
+        大总结
+            git目录就是本地仓库
+            它支持多个分支
+            一些细节
+                git add处理的是文件变化 而不是文件 
+                比如删除一个文件后 依然要git add来添加到待提交区
+                删除操作
+                    rm style.css 
+                    git add style.css
+                    git commit -v
+                    enter delete style.css  
+            命令行操作 能够代替很多GUI操作
+            
+    </pre>
+</body>
+</html>
