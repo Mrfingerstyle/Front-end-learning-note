@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <strong>资料来源 饥人谷</strong><hr>
+    <pre>
+        自己的代码使用ssh下载 别人的代码使用HTTP下载
+        git clone git@github.com:Mrfingerstyle/git-demo-01.git
+        下载下来的文件 包含各个分支的文件 可以切换分支查看
+
+        下载被人的代码
+            如何下载代码
+                git clone git@xxx[目标路径]
+                如果是不同机器 要上传新的ssh 
+                cd 目标路径 
+                git add git commit git pull git push 四连操作
+                如果远程的代码被修改 需要先pull 再push
+                例如 一些代码被同事修改
+            如何下载某个分支
+                先去下载整个仓库 然后再去git checkout到其他分支
+                或者记住一些复杂的指令
+        git clone 三种形式
+            git clone git@xxx  
+                在当前目录创建一个xxx目录 
+                xxx/.git 是本地仓库
+                一般需要接一句 cd xxx
+            git clone git@xxx yyy
+                会在本地新建yyy cd yyy
+            git clone git@xxx . 
+                不会新建目录 使用当前目录容纳代码和.git 
+                当前目录一开始最好是个空目录 不然后果自负
+        上传到两个仓库
+            cd ~/Desktop
+            mkdir multi-up 
+            cd multi-up
+            git init 
+            touch 1.txt
+            git add 1.txt 
+            git commit -v 
+            git remote add origin-1 git@xxx
+            git remote add origin-2 git@xxx
+            git push -u origin-1 master 
+            git push -u origin-2 master
+            以上 就把文件上传到两个仓库了
+
+            如果提示git pull 那就运行下同步文件即可
+
+            国内的GitHub代替品
+                coding.net  
+                码云
+                git lab
+            
+            远程仓库只是本地仓库的备份 所以变化都要commit到本地仓库 
+            然后push到远程
+            
+            
+
+    </pre>
+
+</body>
+</html>

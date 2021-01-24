@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <strong>资料来源 饥人谷</strong><hr>
+
+    <pre>
+        代码需要存储到云端
+        GitHub怎么知道是你在操作你的代码
+        私钥和公钥是配对的关系 
+            公钥加密的内容需要私钥解开
+            私钥加密的内容需要公钥解开
+        
+        打开终端 输入 ssh-keygen -t rsa -b 4096 -C "your_email@example.com" 
+        一直回车 出现小气泡式的图形
+        
+        打开GitHub 在页面填入公钥
+        GitHub settings ssh and gpg keys new ssk 
+        打开本地生成的id_rsa.pub 将内容填入ssk框内
+        
+        测试有没有连接成功
+        ssh -T git@github.com 
+        ssh key 验证身份
+        
+        推理
+            你有一个GitHub账号 一个本地电脑的git仓库 
+            GitHub怎么知道电脑和账号都是你的呢
+        答案
+            每次都输入一次密码 https协议 不方便
+            使用ssh key 
+            电脑上放私钥 GitHub账号里留下私钥 
+            上传代码是用私钥加密 GitHub用公钥解密
+            如果解开了 说明是配对的
+            同理 你怎么知道对方是GitHub呢 也需要GitHub提供给你一个公钥 
+            所以第一次连接GitHub时要输入yes接受对方的公钥 
+        
+        
+        
+    </pre>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <strong>资料来源 饥人谷</strong><hr>
+    <pre>
+        使用 bash alias 简化指令
+        touch ~/.bashrc
+        echo 'alias ga="git add"'>> ~/.bashrc
+        echo 'alias gc="git commit -v"'>> ~/.bashrc
+        echo 'alias gl="git pull"'>> ~/.bashrc
+        echo 'alias gp="git push"'>> ~/.bashrc
+        echo 'alias gco="git checkout"'>> ~/.bashrc
+        echo 'alias gst="git status -sb"'>> ~/.bashrc
+
+        优化git log显示结果
+        
+        配置简化的git命令发现一个问题
+        每次重新打开终端 简易命令不起作用 必须执行source ~/.bashrc 才能使用 
+        发现zsh加载的是 ~/.zshrc文件，而 ‘.zshrc’ 文件中并没有定义任务环境变量
+        解决办法
+        在~/.zshrc文件最后，增加一行：
+        source ~/.bashrc 解决  
+
+        git rebase -i xxxxxx 美化历史命令
+        出错怎么办
+            看log 
+            中止
+                git rebase --abort 可以取消rebase
+            继续
+                git rebase --continue 可以继续
+        git stash git stash pop 
+            既不想提交代码 又不想删除代码
+            那么就找个隐藏空间将代码临时藏起来
+            这里隐藏的是已经git add的文件
+        git stash pop 
+            将隐藏的文件显示出来
+            
+            
+
+
+
+    </pre>
+</body>
+</html>

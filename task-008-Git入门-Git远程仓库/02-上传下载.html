@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <strong>资料来源 饥人谷</strong><hr>
+
+    <pre>
+        在GitHub新建仓库
+        选择ssh 不使用https 
+        git remote add origin git@github.com:Mrfingerstyle/git-demo-01.git
+        git push -u origin master
+        加了参数-u后，以后即可直接用git push 代替git push origin maste        
+        上传的是提交的某一分支 不是全部的文件
+        每次push只是把本地的一个分支上传到GitHub的一个分支
+        
+        在本地切换到新的分支 然后提交 再push到GitHub的目标分支
+
+        上传代码
+            新建GitHub repo 复制其ssh地址
+            复制页面内需要的代码
+
+            git remote add origin git@xxxxxx
+            在本地添加远程仓库地址
+            origin是远程仓库的默认名字 可以换 建议不要换 
+            不要使用https://地址 因为每次都需要输入密码
+
+            git push -u origin master
+            推送本地master分支到远程origin的master分支
+            如果提示你应该git pull 那就git pull以下
+            git pull 是先把远程分支合并到本地对应的分支
+            如果远程分支没更新过 才可以省略git pull 
+            -u origin master 意思是设置上游分支 
+            之后就不需要再设置上游分支 直接git pull git push 
+            
+            如何上传其他分支
+                方法一
+                    git push -u origin x:x 
+                    从本地的x分支上传到origin的x
+                方法二
+                    git checkout x
+                    git push -u origin x 
+            
+            Github用来备份.git而已
+            不到万不得已  不要使用 -f
+
+    </pre>
+</body>
+</html>
