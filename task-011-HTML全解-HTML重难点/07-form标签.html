@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        textarea {
+            resize: none;
+            width: 50%;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <strong>资料来源 饥人谷</strong>
+    <hr>
+    <pre>
+        form标签
+        作用
+            发get post请求 然后刷新页面
+        属性
+            action 设置请求的页面
+            autocomplete 显示可选的内容建议 on off 
+            method get post 
+            target 把哪个页面变为yyy 提交到哪个页面 哪个页面需要刷新
+    </pre>
+    <hr>
+    <!-- action 控制请求那个页面 method 请求的方法 -->
+    <form action="/xxx" method="POST" autocomplete="on">
+        <input type="text" name="username" id="">
+        <input type="color" name="" id="">
+        <input type="password" name="" id="">
+        <hr>
+
+        <input type="radio" name="gender" id="man">
+        <label for="man">男</label>
+        <input type="radio" name="gender" id="woman">
+        <label for="woman">女</label>
+
+        <hr>
+        <input type="checkbox" name="hobby" id="">sing
+        <input type="checkbox" name="hobby" id="">dance
+        <input type="checkbox" name="hobby" id="">rap
+        <hr>
+        <input type="file">
+        <hr>
+        input:hidden
+        <input type="hidden" name="" id="">
+        <hr>
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <!-- 默认右下角可以拖动 -->
+        <hr>
+        <!-- 下拉菜单 -->
+        <select name="" id="">
+            <option value="">请选择</option>
+            <option value="item">option item</option>
+            <option value="item">option item</option>
+            <option value="item">option item</option>
+        </select>
+
+
+
+
+        <hr>
+        <input type="submit" name="" id="">
+        <button type="submit">提交</button>
+        <!-- 以上两种提交的区别 -->
+        <!-- input内不能加标签 button内可以再加标签 -->
+        <!-- 表单内必须要有一个type=submit 才可以提交 -->
+        <!-- 按钮默认是submit -->
+
+        <!-- html5验证器 -->
+        <!-- required checked -->
+
+        <!-- 其他输入标签 -->
+        <!-- select + option -->
+        <!-- Textarea -->
+        <!-- label -->
+
+        <!-- 注意事项 -->
+        <!-- 一般不监听input的click事件 -->
+        <!-- form里的input要有name -->
+        <!-- form里要放一个type=submit才能触发submit事件 -->
+
+        <!-- 其他标签 -->
+        <!-- video audio canvas svg -->
+        <!-- 注意事项 -->
+        <!-- 标签的兼容性一定要查看文档 -->
+
+    </form>
+
+</body>
+
+</html>

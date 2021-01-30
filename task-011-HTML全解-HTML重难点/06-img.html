@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        img {
+            /* 图片加上这句话就是响应式的 */
+            max-width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <strong>资料来源 饥人谷</strong>
+    <hr>
+    <!-- src属性 -->
+    <!-- 网络地址 或 相对路径 绝对路径 -->
+    <img src="dog.jpeg" alt="dog img" id="xxx">
+    <!-- img标签会发起get请求 获取图片 -->
+
+    <!-- alt 加载失败时显示 -->
+
+    <!-- 宽 高 -->
+    <!-- 只写宽度 高度会自适应 -->
+    <!-- 只写高度 宽度会自适应 -->
+    <!-- 宽 高 全部设置 图片会变形 -->
+    <!-- 前端的底线 永远不要让图片变形 -->
+
+    <!-- 事件 onload onerror -->
+    <script>
+        xxx.onload = function () {
+            console.log("图片加载成功");
+        }
+        // 图片加载失败的时候显示另一张图片
+        xxx.onerror = function () {
+            console.log("图片加载失败");
+            xxx.src = "/404.jpg";
+        }
+    </script>
+
+    <!-- 如何做响应式 -->
+
+
+
+
+
+
+</body>
+
+</html>

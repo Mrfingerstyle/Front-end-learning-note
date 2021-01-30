@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <strong>资料来源 饥人谷</strong>
+    <hr>
+    <pre>
+        target属性
+            _blank 新开一个标签页打开
+            _top 在顶层打开
+            _parent 在当前链接的上一层打开 
+            _self 当前页面打开链接
+            target=xxx 意思是如果有xxx的窗口 就打开 没有就创建它
+                打开控制台 输入window.name即可验证
+
+        程序员命名
+    </pre>
+    <hr>
+    <a href="//baidu.com" target="_self">百度</a>
+    <a href="//baidu.com" target="_blank">百度</a>
+    <a href="//baidu.com" target="_top">百度</a>
+    <a href="//baidu.com" target="_parent">百度</a>
+
+    <!-- 这里写了同一个字符串 浏览器会用同一个窗口打开这两个页面 -->
+    <a href="//baidu.com" target="xxx">百度</a>
+    <a href="//baidu.com" target="xxx">百度</a>
+
+    <hr>
+
+    <iframe src="./a-target-frame.html" title=""></iframe>
+</body>
+
+</html>

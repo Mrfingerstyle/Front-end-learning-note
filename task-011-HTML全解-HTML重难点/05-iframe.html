@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            /* table-layout: auto; */
+            /* auto 自动算法 */
+            /* 列 根据内容设置宽度 */
+
+            /* fixed */
+            /* 列等宽 */
+            table-layout: fixed;
+            width: 600px;
+            text-align: center;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        td,
+        th {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <strong>资料来源 饥人谷</strong>
+    <hr>
+    <pre>
+        iframe 标签
+        内嵌窗口 现在很少使用
+
+        table标签
+            thead 
+            tbody 
+            tfoot  
+            三者顺序可以改变
+            tr th 
+            tr table row 
+            没有写tbody 浏览器自动加上tbody 
+
+        相关的样式
+            table-layout 
+    </pre>
+    <table>
+        <thead>
+            <th scope="col">英语</th>
+            <th scope="col">翻译</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>hyper</td>
+                <td>超级</td>
+            </tr>
+            <tr>
+                <td>target</td>
+                <td>目标</td>
+            </tr>
+            <tr>
+                <td>reference</td>
+                <td>引用</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>null</td>
+                <td>null</td>
+            </tr>
+        </tfoot>
+    </table>
+    <hr>
+    <table>
+        <thead>
+            <th scope="col"></th>
+            <th scope="col">小红</th>
+            <th scope="col">小明</th>
+            <th scope="col">小蓝</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">语文</th>
+                <td>91</td>
+                <td>91</td>
+                <td>91</td>
+            </tr>
+            <tr>
+                <th scope="row">数学</th>
+                <td>92</td>
+                <td>92</td>
+                <td>92</td>
+            </tr>
+            <tr>
+                <th scope="row">英语</th>
+                <td>93</td>
+                <td>93</td>
+                <td>93</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <th scope="row">总分</th>
+            <td>200</td>
+            <td>200</td>
+            <td>200</td>
+        </tfoot>
+    </table>
+</body>
+
+</html>
