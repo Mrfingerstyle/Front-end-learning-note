@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent {
+            border: 3px solid #000;
+        }
+
+        /* 此时外边距合并了 */
+        /* .child-1 {
+            border: 3px solid red;
+            margin-bottom: 30px;
+        }
+
+        .child-2 {
+            border: 3px solid green;
+            margin-top: 30px;
+        } */
+
+        /* 如果需要清除合并效果 */
+
+        .child {
+            border: 2px solid red;
+            margin: 30px;
+            /* inline-block会影响margin */
+            /* 没什么用 取消margin合并 */
+            display: inline-block;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="child">child</div>
+        <div class="child">child</div>
+    </div>
+</body>
+
+</html>

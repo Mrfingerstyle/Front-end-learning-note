@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            border: 1px solid #000;
+        }
+
+        .parent {
+            background-color: red;
+            margin: 15px 0;
+            /* 1 加边距 */
+            /* padding-top: 10px; */
+            /* 2 加边框 */
+            /* border-top: 3px solid green; */
+            /* 3 overflow */
+            /* overflow: hidden; */
+        }
+
+        .child {
+            border: 2px solid #000;
+            margin: 30px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <!-- 第一个child的外边距和父元素的外边距合并 -->
+        <!-- 最后一个child也是 -->
+        <div class="child">child</div>
+        <div class="child">child</div>
+        <div class="child">child</div>
+        <div class="child">child</div>
+    </div>
+</body>
+
+</html>

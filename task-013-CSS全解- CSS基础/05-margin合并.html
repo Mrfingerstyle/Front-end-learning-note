@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <strong>资料来源 饥人谷</strong>
+    <hr>
+    <pre>
+        相邻兄弟元素上下边距重叠
+        父子元素上下边距重叠
+        外边距合并只有上下方向存在 没有左右方向重叠
+
+        margin合并的前提是两者之间什么都没有 如果其中有border和padding 
+            则不会合并
+        
+        哪些情况会合并
+            父子margin合并
+            兄弟margin合并
+        
+        如何阻止合并
+            父子用 padding border overflow:hidden display: flex阻止
+            兄弟合并是复合预期的 可以用inline-block消除
+            一条条记住
+            css属性逐年增加 每年都有新的
+        
+        css恶心之处 
+            不正交 
+            例如 调节亮度 对比度 会变化 
+            调节第一个属性会影响第二个属性
+            调节第二个属性会影响第一个属性
+
+        基本单位
+            px 
+            em 相对于自身font-size的倍数
+            百分数
+            整数
+            rem 
+            vw vh 
+            其他单位用的很少 不用了解
+            
+        颜色
+            十六进制 #FF6600 可以简写为#F60
+            RGBA颜色 rgb(0, 0, 0)
+            hsl颜色 hsl(360, 100%, 100%)
+
+        
+
+
+    </pre>
+</body>
+
+</html>

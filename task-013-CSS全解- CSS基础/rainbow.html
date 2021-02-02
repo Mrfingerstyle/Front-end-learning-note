@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .wrap {
+            /* border: 1px solid #000; */
+            height: 100px;
+            overflow: hidden;
+        }
+
+        .rainbow {
+            /* border: 1px solid #000; */
+            background-color: red;
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 50%;
+        }
+
+        .rainbow div {
+            /* 清除margin合并 */
+            overflow: hidden;
+        }
+
+        .rainbow .one {
+            /* border: 1px solid #000; */
+            background-color: yellow;
+            width: 180px;
+            height: 180px;
+            margin: 10px;
+            border-radius: 50%;
+        }
+
+        .rainbow .two {
+            /* border: 1px solid #000; */
+            background-color: blue;
+            width: 160px;
+            height: 160px;
+            margin: 10px;
+            border-radius: 50%;
+        }
+
+        .rainbow .three {
+            /* border: 1px solid #000; */
+            background-color: pink;
+            width: 140px;
+            height: 140px;
+            margin: 10px;
+            border-radius: 50%;
+        }
+
+        .three div {
+            /* border: 1px solid #000; */
+            background-color: white;
+            width: 120px;
+            height: 120px;
+            margin: 10px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="rainbow">
+            <div class="one">
+                <div class="two">
+                    <div class="three">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
