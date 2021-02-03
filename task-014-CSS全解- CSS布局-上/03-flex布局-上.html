@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <strong>资料来源 饥人谷</strong>
+    <hr>
+    <pre>
+        flex布局
+        教程 来自 CSS Tricks
+        先把教程过一遍 然后忘掉
+        青蛙游戏
+        开始用flex
+
+        container 容器
+        items 
+            让一个元素变为容器
+            .container {
+                display: flex;
+                display: inline-flex;
+            }
+
+        改变items流动方向 主轴
+            flex-direction row row-reverse column column-reverse 
+        
+        flex-wrap 设置是否折行
+            flex-wrap 默认不折行
+                也可以设置为wrap折行
+                一般折行
+            wrap-reverse
+                从下向上折行 使用较少
+        
+        主轴对齐方式
+            默认 justify-content flex-start 
+            flex-end
+            center
+            <!-- 空间均分 一般均分 -->
+            space-between 
+            <!-- 左右空间一样 -->
+            space-around
+            <!-- 平均围绕 -->
+            justify-content: space-evenly;
+
+        次轴对齐方式 当item高度不一样的时候 做上下
+            align-items 
+                flex-start
+                flex-end
+                center
+                stretch
+
+        多行内容
+            默认平均分配行高
+            align-content 
+                flex-start
+                flex-end 
+                center 
+                space-between
+                space-around
+        
+        实践
+            不同布局
+                用flex做两栏布局
+                用flex做三栏布局
+                用flex做四栏布局
+                用flex做平均布局
+                用flex做综合布局 做更复杂的布局
+            
+            经验
+                永远不要把width height写死 除非特殊说明
+                用min-width max-width min-height max-height 
+                flex可以基本满足所有需求
+                flex和margin-xxx auto配合有意外的效果
+    </pre>
+</body>
+
+</html>

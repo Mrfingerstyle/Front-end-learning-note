@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            /* display: inline-flex; */
+            border: 1px solid red;
+            /* 竖着显示 弹性盒模型默认一字排开 */
+            /* flex-direction: column; */
+            /* flex-direction: row-reverse; */
+            flex-direction: row;
+            flex-wrap: wrap;
+            /* flex-wrap: wrap-reverse; */
+            /* justify-content: flex-end; */
+            /* justify-content: center; */
+            /* justify-content: space-between; */
+            /* justify-content: space-around; */
+            /* justify-content: space-evenly; */
+
+            /* align-items: center; */
+            /* flex-start 向上顶 默认 */
+            align-items: flex-end;
+            /* 将项目拉满 到长度一致 常用 */
+            /* align-items: stretch; */
+
+
+
+        }
+
+        .item {
+            width: 50px;
+            /* height: 50px; */
+            border: 1px solid green;
+        }
+
+        /* .h-1 {
+            height: 100px;
+        }
+
+        .h-2 {
+            height: 200px;
+        }
+
+        .h-3 {
+            height: 150px;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item h-1">1 <br>1 <br>1 <br>1 <br></div>
+        <div class="item h-2">2 <br>2 <br>2 <br>2 <br>2 <br>2 <br></div>
+        <div class="item h-3">3 <br>3 <br>3 <br>3 <br>3 <br>3 <br>3 <br>3 <br>3 <br></div>
+    </div>
+</body>
+
+</html>

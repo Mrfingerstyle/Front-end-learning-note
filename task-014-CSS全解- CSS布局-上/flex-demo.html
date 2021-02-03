@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ul,
+        ol {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .header {
+            display: flex;
+            /* border: 1px solid #000; */
+            justify-content: space-between;
+            align-items: center;
+            background-color: grey;
+            padding: 4px 0;
+        }
+
+        .logo {
+            background-color: grey;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 26px;
+            /* vertical-align: middle; */
+            /* border: 1px solid red; */
+        }
+
+        ul {
+            /* margin: auto; */
+            display: flex;
+            /* border: 1px solid green; */
+        }
+
+        ul>li {
+            /* border: 1px solid red; */
+            height: 32px;
+            /* line-height: 32px; */
+            padding: 4px;
+        }
+
+        /* header结束 */
+        .content {
+            display: flex;
+            /* width: 800px; */
+            color: white;
+            justify-content: center;
+            /* margin-left: auto; */
+            /* margin-right: auto; */
+            margin: 10px 0;
+
+
+        }
+
+        .content>aside {
+            background-color: #000;
+            width: 200px;
+            height: 400px;
+        }
+
+        .content>main {
+            background-color: #666;
+            width: 400px;
+            height: 400px;
+        }
+
+        .content>.ad {
+            background-color: #999;
+            width: 200px;
+            height: 400px;
+        }
+
+        /* content结束 */
+        .image-list {
+            width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            /* border: 1px solid red; */
+        }
+
+        .image-list>.x {
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: -6px;
+            margin-right: -6px;
+        }
+
+        .image {
+            width: 191px;
+            height: 191px;
+            background-color: grey;
+            border: 1px solid red;
+            margin-bottom: 10px;
+            margin-left: 6px;
+            margin-right: 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="https://static.xiedaimala.com/xdml/cdn/assets/black-logo-6b90d5f6165754f30be3d8469256bc824371ae8deaefc286127fb7701b7b8dc5.png"
+                alt="logo">
+        </div>
+        <ul>
+            <li>首页</li>
+            <li>课程</li>
+            <li>优惠</li>
+            <li>关于</li>
+        </ul>
+    </header>
+    <div class="content">
+        <aside>aside part</aside>
+        <main>main part</main>
+        <div class="ad">ad part</div>
+    </div>
+    <div class="image-list">
+        <div class="x">
+            <div class="image"></div>
+            <div class="image"></div>
+            <div class="image"></div>
+            <div class="image"></div>
+            <div class="image"></div>
+            <div class="image"></div>
+            <div class="image"></div>
+        </div>
+    </div>
+</body>
+
+</html>

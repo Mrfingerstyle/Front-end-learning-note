@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        header {
+            border: 1px solid #000;
+        }
+
+        .logo {
+            width: 100px;
+            height: 40px;
+            border: 1px solid red;
+            float: left;
+            margin-top: 5px;
+
+            margin-left: 10px;
+            /* ie 6 7 设置margin 为了解决双倍问题 */
+            /* _margin-left: 5px; */
+            /* 或者 使用display inline-block */
+        }
+
+        nav {
+            width: 100px;
+            height: 50px;
+            border: 1px solid green;
+            float: left;
+        }
+
+        .user {
+            border: 1px solid #000;
+            height: 40px;
+            max-width: 100px;
+            float: left;
+            margin-top: 5px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header class="clearfix">
+        <div class="logo">XDML</div>
+        <nav>NAV</nav>
+        <div class="user">USER</div>
+    </header>
+</body>
+
+</html>
