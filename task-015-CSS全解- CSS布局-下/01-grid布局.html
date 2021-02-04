@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <strong>资料来源 饥人谷</strong>
+    <hr>
+    <pre>
+        一维布局用flex
+        二维布局用grid
+
+        成为container
+            display: grid inline-grid 
+        
+        设置行和列
+            grid-template-columns 
+            grid-template-rows 
+            行和列的划分以线为基础 
+            例如 行 三行 从第一条线开始是 1 2 3 4
+        
+            .a {
+                grid-row-start: 1;
+                grid-row-end: 2;
+                grid-column-start: 1;
+                grid-column-end: 6;
+            }
+    
+            .b {
+                grid-row-start: 2;
+                grid-row-end: 4;
+                grid-column-start: 1;
+                grid-column-end: 3;
+            }
+    
+            .c {
+                border: 1px solid green;
+                grid-row-start: 3;
+                grid-row-end: 4;
+                grid-column-start: 3;
+                grid-column-end: 5;
+            }
+        
+        还可以使用fr 
+            
+    </pre>
+</body>
+
+</html>

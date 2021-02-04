@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            border: 1px solid red;
+            width: 800px;
+            grid-gap: 12px;
+        }
+
+        .container>div {
+            border: 1px solid #000;
+        }
+
+        .image {
+            width: 191px;
+            height: 191px;
+            background-color: grey;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="image"></div>
+        <div class="image"></div>
+        <div class="image"></div>
+        <div class="image"></div>
+        <div class="image"></div>
+        <div class="image"></div>
+        <div class="image"></div>
+        <div class="image"></div>
+        <div class="image"></div>
+        <div class="image"></div>
+    </div>
+</body>
+
+</html>
