@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <strong>资料来源 饥人谷</strong>
+    <hr>
+    <pre>
+        层叠上下文 也叫堆叠上下文
+            z-index 10 z-index 5 哪个高
+            层叠会把分层包起来
+            层叠上下文就是对这些 HTML 元素的一个三维构想。众 HTML 元素基于其元素属性按照优先级顺序占据这个空间。
+        比喻
+            每个层叠上下文就是一个小世界 作用域
+            这个小世界里面的z-index 跟外界无关
+            处在同一个小世界的z-index才能比较
+        哪些不正交的属性可以创建它
+            mdn文档有写
+            需要记忆的有 z-index:0  flex  opacity不为1 transform position: fixed 
+            z-index 默认 auto不创建 其他值 如 0 1 2 -1 -2 会创建
+            忘了就搜索层叠上下文 mdn 
+        负数 z-index  
+            会显示在背景色下面 前提是没有开启层叠上下文
+            负z-index 逃不出小世界
+            -1 不一定能逃出一个div 除非这个div不是一个层叠上下文
+        
+        
+        
+
+            
+
+        
+
+    </pre>
+</body>
+
+</html>

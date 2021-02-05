@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <strong>资料来源 饥人谷</strong>
+    <hr>
+    <pre>
+        position
+            static 默认值 待在文档流里
+            relative 相对定位 升起来 但是不脱离文档流
+                占的位置不变 只是跟显示的位置有些偏离
+                主要是和absolute结合使用
+                默认每个元素的z-index默认值是auto auto和0不一样
+                较大值的z-index元素会在上面 压住较小值
+                配合 z-index
+                    auto默认值 不创建新层叠上下文
+                    z-index 0 1 2 
+                    z-index -1 -2 
+                经验
+                    z-index 999 都是彩笔 
+                    学会管理z-index 
+
+            absolute 绝对定位 定位基准是祖先里的非static 
+                脱离原来的位置 另起一层 比如对话框的关闭按钮鼠标提示
+                配合z-index 
+                经验
+                    很多彩笔认为absolute是相对于relative定位的
+                    某些浏览器上不写top left会位置错乱
+                    善用left 100% 
+                    善用left 50% 加负margin
+                    
+
+
+            fixed 固定定位 定位基准是viewport(有诈)
+            sticky 粘滞定位 不好描述 直接举例
+
+        经验
+            如果写了absolute 一般都要不一个relative
+            如果写了absolute fixed 一定要补top left
+            sticky兼容性很差 主要用于面试
+
+
+    </pre>
+</body>
+
+</html>
