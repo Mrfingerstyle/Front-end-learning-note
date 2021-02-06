@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <strong>资料来源 饥人谷</strong>
+    <hr>
+    <pre>
+        动画 许多精致的画面以一定的速度连续播放时 
+        肉眼因视觉残象产生错觉 而误以为是活动的画面
+
+        概念
+        帧 每个静止的画面都叫做帧
+        播放速度 每秒24帧 影视 每秒30帧 影视
+
+        chrome开发者工具
+        任意标签下按esc  右键打开rendering paint flashing 
+        绘制闪烁 
+        再刷新页面 页面会重新渲染
+
+        浏览器渲染过程
+            根据html 构建 html树 dom
+            根据css 构建 css树 cssom 
+            将两棵树合并成一颗渲染树 render tree 
+            layout布局 文档流 盒模型 计算大小 位置 
+            paint绘制 边框颜色 文字颜色 阴影等画出来 
+            compose合成
+
+        一般我们使用JavaScript更新样式
+            div.style.background = 'red'
+            div.style.display = 'none'
+            div.classList.add('red')
+            div.remove() 直接删除节点
+    </pre>
+</body>
+
+</html>

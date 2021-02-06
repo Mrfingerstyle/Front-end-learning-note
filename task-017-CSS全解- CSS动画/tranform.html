@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #demo {
+            width: 100px;
+            height: 200px;
+            border: 1px solid red;
+            margin: 50px;
+        }
+
+        #demo:hover {
+            /* transform: translateX(200px); */
+            /* transform: translateY(50px); */
+            /* 设置视点之后 translateZ才会有效果 */
+            /* transform: translateZ(50px); */
+
+            /* transform: translate(30px, 30px); */
+            /* 3d效果 */
+            /* transform: translate3d(30px, 30px, 100px); */
+
+            /* transform: translate(50%); */
+            /* transform: translateX(-50%); */
+
+            transform: translateY(50%);
+        }
+
+        .wrapper {
+            perspective: 1000px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="demo"></div>
+    </div>
+</body>
+
+</html>

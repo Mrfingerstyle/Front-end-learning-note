@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <strong>资料来源 饥人谷</strong>
+    <hr>
+    <pre>
+        三种更新方式
+            JavaScript/css - 样式 - 布局 - 绘制 - 合成
+                第一部 全走 div.remove() 会触发当前消失 其他元素relayout
+            JavaScript/css - 样式 -  - 绘制 - 合成
+                跳过layout
+                改变背景颜色 直接repaint + composite 
+            JavaScript/css - 样式 -  -  - 合成 跳过layout 和 paint 
+                改变transform 只需composite(合成)
+                注意必须全凭查看效果 在iframe里看有问题
+        
+        问题 我怎么知道每个属性触发什么流程
+            自己一一试验
+            https://csstriggers.com 可以在这个网站查阅 
+            同一属性在每个浏览器的走的过程不同 
+            有的只有paint composite 
+            有的只有合成 composite 
+
+        前端高手不用left做动画 
+            用transform变形 
+            原理
+                transformX 0 - 300px 
+                直接修改会被合成 需要等一会修改
+                transition过渡属性可以自动脑补中间帧
+            注意性能
+                并没有repaint 
+                比改left性能好
+
+        将div从左到右移动
+            left -> transform
+            原理
+                每过一段时间 将div向右移动一小段举例
+                直到移动到目标地点
+            注意性能
+                paint flashing 绿色表示重新绘制
+                css渲染过程依次包含布局 绘制 合成
+                其中布局和绘制有可能被省略
+        
+        css动画优化 
+            css动画优化
+                https://developers.google.com/web/fundamentals/performance/rendering/stick-to-compositor-only-properties-and-manage-layer-count
+            js优化
+                使用requestAnimationFrame 代替 setTimeout 或 setInterval 
+            css动画优化
+                使用will-change 或 translate 
+    </pre>
+</body>
+
+</html>

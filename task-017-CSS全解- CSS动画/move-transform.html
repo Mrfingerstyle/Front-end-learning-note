@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #demo {
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            position: relative;
+            left: 0;
+        }
+
+        #demo.end {
+            transform: translateX(200px);
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 绿了两次 -->
+    <!-- 第二种方式 导致性能提升了很多 不用再重新渲染 -->
+    <div id="demo"></div>
+    <script>
+        setInterval(() => {
+            demo.classList.add('end');
+        }, 3000);
+    </script>
+</body>
+
+</html>

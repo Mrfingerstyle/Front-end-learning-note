@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #demo {
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            position: relative;
+            left: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 一直在变绿 说明渲染很多次 -->
+
+    <div id="demo"></div>
+    <script>
+        var n = 1
+        var id = setInterval(() => {
+            if (n <= 200) {
+                demo.style.left = n + "px"
+                n = n + 1
+            } else {
+                console.log(1);
+                clearInterval(id);
+            }
+        }, 1000 / 60)
+    </script>
+</body>
+
+</html>

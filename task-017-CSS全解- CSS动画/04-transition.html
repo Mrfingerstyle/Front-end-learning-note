@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <strong>资料来源 饥人谷</strong>
+    <hr>
+    <pre>
+        transition 过渡
+            作用 补充中间帧
+            语法
+                transition 属性名 时长 过渡方式 延迟
+                transition: left 200ms linear 
+                可以用都逗号分割两个不同属性
+                transition:left 200ms top 400ms 
+                可以用all代表所有属性
+                transition: all 200ms 
+                过渡方式有 linear ease ease-in ease-out ease-in-out 
+                cubic-bezier step-start step-end steps 
+                具体要结合数学知识
+            
+            并不是所有属性都能过渡
+                display none - block 没法过渡 且 不保留位置
+                一般改成 visibility hidden - visible 
+                opacity 只是让你看不见 位置还存在 需要在某个时间点之后加setTimeout
+                    opacity 可以过渡
+                visible 转到hidden占位置
+                block 转到 none不占位置 
+                背景颜色可以过渡
+
+        过渡必须要有起始
+            一般只有一次动画 或者两次
+            比如hover和非over状态的过渡
+        还有中间点
+
+        css js 可以通过结果倒退原理
+        往后学比停留更重要
+
+        使用animation做动画
+            声明关键帧
+            添加动画
+            
+    
+        
+
+
+
+    </pre>
+</body>
+
+</html>
