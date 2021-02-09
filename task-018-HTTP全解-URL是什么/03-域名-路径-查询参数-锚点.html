@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <strong>资料来源 饥人谷</strong>
+    <hr>
+    <pre>
+        域名
+            前期人物 蔡文胜
+            域名是什么
+                域名是IP的别称
+                baidu.com 对应IP
+                qq.com 对应IP
+                知识点
+                    一个域名可以对应不同IP
+                        负载均衡 防止一台机器扛不住
+                    一个IP对应不同域名
+                        共享主机 穷开发者会这么做
+                ping baidu.com  不同的得到回复
+                ctrl + c 终止
+            域名和IP如何对应起来
+                DNS
+                domain name system 
+                例如 输入 baidu.com 
+                chrome浏览器会向电信 联通提供的dns服务器询问baidu.com对应的IP
+                电信 联通 回答一个IP 
+                然后Chrome才会想起对应IP的80 443端口发送请求
+                请求内容是查看baidu.com 的首页
+
+                为什么是80 或 443端口
+                    服务器默认用80提供http服务
+                    服务器默认用443提供https服务
+                    可以在开发者工具中看到具体的端口
+            
+            www.xiedaimala.com
+                com 一级域名
+                xiedaimala.com 二级域名
+                www.xiedaimala.com 三级域名
+                www.xiedaimala.com和xiedaimala.com可以不是同一家公司
+                www是多余的
+            
+            如何请求不同的页面
+                路径可以做到
+                    https://developer.mozilla.org/zh-CN/docs/Web/HTML
+                    https://developer.mozilla.org/zh-CN/docs/Web/CSS
+                路径是没有必要有后缀的
+                工具
+                    使用Chrome开发者工具network面板看看区别
+
+            同一个页面 不同内容
+                查询页面可以做到
+                    https://www.baidu.com/s?wd=hi
+                    https://www.baidu.com/s?wd=hello
+                    查询参数 在同一个页面中 显示不同的页面
+            
+            同一个页面 同一个查询参数 不同显示 锚点可以做到
+                https://developer.mozilla.org/zh-CN/docs/Web/CSS#参考书
+                https://developer.mozilla.org/zh-CN/docs/Web/CSS#教程
+                注意
+                    锚点看起来有中文 实际不支持中文 会转换为16进制字符
+                    锚点无法在network面板看到
+                    因为锚点不会传给服务器
+            URL举例
+                https://www.baidu.com/s?wd=hello&rsv_spt=1#5
+                协议     域名或IP    (端口号)       路径 查询字符串  锚点
+                URL 统一资源定位符
+                uniform resource locator
+    </pre>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <strong>资料来源 饥人谷</strong>
+    <hr>
+    <pre>
+        几个特殊的IP
+            127.0.0.1 表示自己
+            localhost 通过hosts指定为自己
+            0.0.0.0 不表示任何设备
+        
+        IP有了 还需要端口
+            一台服务器可以提供多个服务
+            每个服务一个号码 这个号码就叫做端口号 port 
+
+            提供http服务最好使用80端口
+            提供https服务最好使用443端口
+            提供ftp服务最好使用21端口
+            一共有65535个端口 基本够用
+            tcp端口查询
+                80 提供超文本传输协议
+                443 超文本传输安全协议
+                21 文件传输协议
+        端口使用规则
+            0 - 1023号读那口是留给系统使用的
+            只有拥有管理员权限 才能使用这1024个端口
+            其他端口可以给普通用户使用
+            比如 http-server默认使用8080端口
+            一个端口如果被占用 你就只能换一个端口
+            例如 http-server -c-1 -p 1024 
+        总之 IP和端口缺一不可
+            可以定位一个设备提供的服务
+            
+
+
+
+    </pre>
+</body>
+
+</html>

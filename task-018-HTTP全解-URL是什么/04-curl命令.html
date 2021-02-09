@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <strong>资料来源 饥人谷</strong>
+    <hr>
+    <pre>
+        curl命令 发送http请求
+            查看网页源码
+            curl https://xiedaimala.com
+
+            显示通信过程
+            -v 参数可以显示一次 http 通信的整个过程，包括端口连接和 http request 头信息
+            curl -v http://baidu.com 
+                GET / HTTP/1.1
+                Host: baidu.com
+                User-Agent: curl/7.64.1
+                Accept: */*
+
+                HTTP/1.1 200 OK
+                Date: Wed, 27 Jan 2021 06:29:39 GMT
+                Server: Apache
+                Last-Modified: Tue, 12 Jan 2010 13:48:00 GMT
+                ETag: "51-47cf7e6ee8400"
+                Accept-Ranges: bytes
+                Content-Length: 81
+                Cache-Control: max-age=86400
+                Expires: Thu, 28 Jan 2021 06:29:39 GMT
+                Connection: Keep-Alive
+                Content-Type: text/html
+
+            理解以下概念
+                URL会被curl工具重写 先请求dns获得IP 
+                先进行tcp连接 tcp连接成功后 开始发送http请求 
+                请求内容看一眼 
+                响应内容看一眼 
+                响应结束后 关闭tcp连接 
+                真正结束
+
+            http
+                规定请求的格式是什么 
+                规定响应的格式是什么 
+
+    </pre>
+</body>
+
+</html>
