@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <strong>资料来源 饥人谷</strong>
+    <hr>
+    <pre>
+        体系化学习
+            基础概念 有哪些是必会的
+            如何调试 用的是Node.js 可以用log debugger
+            在哪查资料 
+            标准制定者是谁 http规格文档 rfc 2612
+        如何学
+            copy 复制
+            run 运行
+            modify 修改 运行
+
+        请求
+        ---请求行
+            请求动词 路径加查询参数 协议名/版本
+                get 获取内容
+                post 上传内容
+        ---请求头
+            Host 域名或IP
+            Accept text/html 
+            Content-Type 请求体的格式
+            回车
+        ---请求体
+            请求体 也就是上传内容
+
+            细节
+                三部分 请求行 请求头 请求体 
+                请求动词有 GET POST PUT PATCH DELETE 
+                请求体在get请求中一般为空
+                文档位于RFC2612第五章
+                大小写不敏感 但是最好写标准
+            curl -v -X POST --date '上传内容' http://localhost:8888/
+
+        响应
+            协议名/版本 状态码 状态字符串
+            Content_Type 响应体的格式
+            回车
+            响应体 也就是下载内容
+
+            细节
+                三部分 状态行 响应头 响应体
+                常见的状态码 考点
+                文档位于 RFC 2612第六章
+                
+                
+
+
+    </pre>
+</body>
+
+</html>

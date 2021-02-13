@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <strong>资料来源 饥人谷</strong>
+    <hr>
+    <pre>
+        请求与响应模型
+            服务器 浏览器
+            server client
+        如何发请求
+            1 Chrome地址栏
+            2 curl命令
+        概念
+            帮你发请求的工具叫做用户代理
+            User Agent
+        如何做响应
+            Node有http模块
+            node server.js 8888 
+            注意事项
+                这些代码就是服务器代码 一般放在服务器上
+                path是不带查询参数的路径/x 
+                query是查询参数的对象形式{a:'1'}
+                queryString是查询参数的字符串形式?a=1
+                pathWithQuery是带查询参数的路径 一般不用
+                request是请求对象
+                response响应对象
+
+            每次收到请求都会把中间的代码执行一遍
+            用if else判断路径 并返回响应
+            如果是已知路径 一律返回200
+            如果是未知路径 一律返回404
+            Content-Type 表示内容的类型/语法
+            response.write() 可以填写返回的内容
+            response.write() 表示响应可以发给用户了
+            
+
+
+
+    </pre>
+</body>
+
+</html>
