@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <strong>资料来源 饥人谷</strong>
+    <hr>
+    <pre>
+        关注点 在运行JavaScript代码之前 有什么东西是浏览器已经准备好的
+
+        执行JS代码 
+            准备工作
+                提供API window/document/setTimeout
+                上面的东西不是JS自身具备的功能
+                我们将这些功能称为运行环境 runtime env 
+                一旦JS放进页面 就开始运行JS 
+            JS运行在内存中
+        
+        Tab进程 内存构成
+            渲染线程
+            用户界面 线程
+            JS引擎 线程
+                代码区
+                环境 
+                数据
+                    stack 
+                    heap 
+                        stack 栈 数据顺序存放
+                        heap 堆 数据随机存放
+                    规律
+                        非对象和对象
+                        非对象都存在stack
+                        对象存在heap
+                        = 号总会把右边的东西复制到左边 不存在什么传值和传址
+                    数组是对象
+                    函数也是对象
+                    数字 字符串 布尔值不是对象
+                    对象被篡改  
+                        地址被拷贝之后 再修改对象的值 原对象也被修改
+                        
+
+
+
+    </pre>
+</body>
+
+</html>

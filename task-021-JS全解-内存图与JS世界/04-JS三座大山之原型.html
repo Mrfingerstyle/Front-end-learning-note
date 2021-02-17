@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <strong>资料来源 饥人谷</strong>
+    <hr>
+    <pre>
+        JS 的 盘古开天辟地之前 JS 世界是怎样的
+        JS开发者说要有window 浏览器提供window
+        以下都挂到window上
+            console 
+            document
+            对象
+            数组 一种特殊对象
+            var a = [] var a = new Array()
+            函数 一种特殊对象
+            function(){} var a = new Function()
+            后者是完整写法 但是没人用 前者不正规 但是好用
+        
+        为什么什么都挂在window上
+            因为方便 挂在window上的东西可以在任何地方直接用
+            
+        
+        内存图
+            代码区      不知道什么区 
+            代码            window 
+
+        更简单的画法 抽象的内存图
+            window (对象名)
+                console (属性名)
+                Object (属性名)
+                Array (属性名)
+                console属性 保存了console的地址 俗称 引用/指向 
+                console
+                    log 
+                    clear 
+                Object 
+                    函数实现
+                    keys 
+                    prototype 
+                Array 
+                    函数实现
+                    isArray
+                    prototype 
+                
+                console.dir() 
+                    打印属性结构
+        细节
+            关于window
+                window变量和window对象是两个东西
+                window变量是一个容器 存放window对象的地址
+                window对象是Heap里的一坨数据
+                例如 可以var x = window 那么这个x就指向了window对象 
+            同理
+                console和console对象不是一个东西
+                Object和Object函数对象不是统一个东西
+                前者是内存地址 后者是一坨内存
+        JS三座大山
+            this
+            原型
+            AJAX 
+            
+
+    </pre>
+</body>
+
+</html>

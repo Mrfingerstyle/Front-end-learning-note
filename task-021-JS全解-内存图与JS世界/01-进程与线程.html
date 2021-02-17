@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <strong>资料来源 饥人谷</strong>
+    <hr>
+    <pre>
+        英语课堂
+            Operating System 
+            runtime 运行时
+            environment 
+            person
+            kernel 内核
+            compile 编译
+            memory 记忆 存储
+            people
+
+        操作系统常识
+            一切都在内存里
+                开机
+                    操作系统在C盘里 
+                    Mac os在根目录下多个目录里
+                    按下开机键 主办通电 开始读取固件
+                    固件就是固定在主板上的存储设备 里面有开机程序
+                    开机程序会将文件里的操作系统加载到内存中运行
+                操作系统 以Linux为例
+                    首先加载操作系统内核
+                    然后期待初始化进程 编号为1 每个进程都有编号
+                    启动系统服务 文件 安全 联网
+                    等待用户登录 输入密码登录 ssh登录
+                    登录后 运行shell 用户就可以和操作系统对话
+                    bash是一种shell 图形化界面可认为是一种shell 
+
+        打开浏览器
+            Chrome.exe 
+                开启Chrome进程 作为主进程
+                主进程会开启一些辅助进程 如网络服务 GPU加速
+                每新建一个网页 又肯呢个会开启一个子进程
+            浏览器的功能
+                发起请求 下载html 解析html 下载css 解析css 
+                渲染界面 下载js 解析js 执行js等
+                功能模块 用户界面 渲染引擎 js引擎 存储等
+                上面功能模块一般各处于不同的线程 
+                如果进程是车间 那么线程就是车间内的流水线
+                js是单线程的
+                    新开一个页面 会创建渲染引擎和js引擎 这两个是线程
+                    线程之间可以通信
+                dom操作慢 因为需要跨线程通信
+    </pre>
+</body>
+
+</html>

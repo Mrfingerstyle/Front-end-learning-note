@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <strong>资料来源 饥人谷</strong>
+    <hr>
+    <pre>
+        window.Object.prototype 干什么用
+        
+        代码
+            var obj = {}
+            obj.toString() 
+            可以运行 结果 "[object Object]"
+            空对象为什么可以toString()
+            var a = [1, 2, 3]
+
+            解析
+                obj 有一个隐藏属性
+                隐藏属性存储了Object.prototype对象的地址
+                obj.toString() 发现obj上没有toString 
+                就去隐藏属性对应的对象里面找
+                于是找到了Object.prototype.toString 
+
+            obj.toString === window.Object.prototype.toString
+            true
+            a.push === window.Array.prototype.push
+            true
+
+            window 就是js的光
+            
+            var obj = {}
+            var obj_2 = {}
+            obj.toString = 'xxx'
+            obj_2.toString不会被修改 
+            因为这种类型的属性修改走了两层 第一层是obj指向内存对象 第二层是内存对象指向的window中Object的prototype的toString
+            所以obj_2的toString属性不会被修改为'xxx'
+            
+            但是常规的一层属性的修改是可以生效的 
+            var a = {}
+            a.name = 'f'
+            var b = a
+            b.name = 's'
+            此时 两个对象的name属性都被修改
+
+        xxx.prototype 存储了xxx对象的共同属性
+            这就是原型
+        
+        如果没有原型 
+            每个对象的属性都要重新声明
+            代码很长
+            原型让你无需重复声明共有属性 
+            省代码 
+            省内存 只用存一个地址而已
+        
+        每个对象都有一个隐藏属性 指向原型对象
+        
+        对象名称以大写开头 有prototype 和 隐藏的属性 __proto__
+        对象名称以小写开头 只有隐藏属性
+        
+        目前只关心小写字母开头的对象的隐藏属性
+
+        这个隐藏属性叫什么 __proto__
+
+        prototype 和 __proto__ 区别
+            都存着原型的地址
+            只不过prototype挂在函数上 
+            __proto__ 挂在每个新生成的对象上
+        
+        所有对象都有隐藏属性 原型也有隐藏属性
+        Object对象的原型的隐藏属性的原型 没有原型了 为空 
+        window.Object.prototype.__proto__ = null 
+        
+        内存图代替大脑思考
+    </pre>
+</body>
+
+</html>
