@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>画板</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        // 操作提示
+        confirm("操作提示 按下鼠标同时移动鼠标即可画图");
+    </script>
+    <script>
+        // canvas画线
+        var canvas = document.getElementById('canvas');
+        canvas.width = document.documentElement.clientWidth;
+        canvas.height = document.documentElement.clientHeight;
+        // 画线
+        var ctx = canvas.getContext('2d');
+
+
+        // 记录是否在画点或线
+        let painting = false;
+        // 记录上一次的点
+        let last;
+        // 元素显示颜色
+        ctx.fillStyle = 'black';
+        ctx.strokeStyle = 'black';
+        ctx.lineWidth = '10';
+        ctx.lineCap = 'round';
+
+        // 画线函数
+        function drawLine(x1, y1, x2, y2) {
+            ctx.beginPath();
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x2, y2);
+            ctx.stroke();
+        }
+
+
+        // 判断是否是触屏
+        var isTouchDevice = 'ontouchstart' in document.documentElement;
+        // console.log(isTouchDevice);
+        if (isTouchDevice) {
+            // 设置第一个last
+            canvas.ontouchstart = (e) => {
+                let x = e.touches[0].clientX;
+                let y = e.touches[0].clientY;
+                last = [x, y];
+            }
+            // 可触屏的设备
+            canvas.ontouchmove = (e) => {
+                // touches 点击的手指数
+                // 获取第一个手指点击的横纵坐标
+                // console.log(e.touches[0]);
+                let x = e.touches[0].clientX;
+                let y = e.touches[0].clientY;
+                // console.log(x, y);
+                // ctx.beginPath();
+                // ctx.arc(x, y, 10, 0, 2 * Math.PI);
+                // ctx.stroke();
+                // ctx.fill();
+                drawLine(last[0], last[1], x, y);
+                last = [x, y];
+
+            }
+
+        } else {
+            canvas.onmousedown = (e) => {
+                painting = true;
+                // 记录位置
+                last = [e.clientX, e.clientY];
+            };
+            canvas.onmousemove = (e) => {
+                if (painting === true) {
+                    // 画线
+                    // 起点不是00 应该是上一个点
+                    // drawLine(0, 0, e.clientX, e.clientY);
+                    drawLine(last[0], last[1], e.clientX, e.clientY);
+                    // 更新位置
+                    last = [e.clientX, e.clientY];
+                } else {
+                    console.log('nothing to do...');
+                }
+            };
+
+            canvas.onmouseup = () => {
+                painting = false;
+            };
+        }
+        // 编程注重实现的思路
+    </script>
+</body>
+
+</html>

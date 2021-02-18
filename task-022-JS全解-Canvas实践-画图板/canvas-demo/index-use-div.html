@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画板</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="canvas"></div>
+    <script>
+        // canvas.onclick = (e) => {
+        canvas.onmousemove = (e) => {
+            // console调试大法
+            console.log(e);
+            // 打印clientX
+            // 打印clientY
+            console.log(e.clientX);
+            console.log(e.clientY);
+            // 用户在哪里点击 在哪里显示一个东西
+            let div = document.createElement('div');
+            div.style.position = 'absolute';
+            div.style.left = e.clientX + 'px';
+            div.style.top = e.clientY + 'px';
+            // div.style.border = '1px solid red';
+            div.style.width = '6px';
+            div.style.height = '6px';
+            // 让鼠标位于新增元素的中间
+            div.style.marginLeft = '-3px';
+            div.style.marginTop = '-3px';
+            // 元素圆角
+            div.style.borderRadius = '50%';
+            // 黑色实心
+            div.style.backgroundColor = 'black';
+
+            canvas.appendChild(div);
+        }
+    </script>
+</body>
+
+</html>

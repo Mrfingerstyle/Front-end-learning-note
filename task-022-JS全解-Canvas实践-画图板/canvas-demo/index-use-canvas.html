@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画板</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        // canvas画线
+        var canvas = document.getElementById('canvas');
+        canvas.width = document.documentElement.clientWidth;
+        canvas.height = document.documentElement.clientHeight;
+        // 画线
+        var ctx = canvas.getContext('2d');
+
+
+        // 记录是否在画点或线
+        let painting = false;
+        // 记录上一次的点
+        let last
+        // 元素显示颜色
+        ctx.fillStyle = 'black';
+        ctx.strokeStyle = 'none';
+
+        // console.log(canvas.onmousemove); null
+        // 使用宽度大概确定设备
+        // if (canvas.width < 500) {
+        //     console.log('phone');
+        // } else {
+        //     console.log('pc');
+        // }
+
+        // 绘制三角形
+        ctx.beginPath();
+        // 画线
+        // 开始点
+        // ctx.moveTo(125, 125);
+        // 移动到某点
+        // ctx.lineTo(125, 45);
+        // 移动到某点
+        // ctx.lineTo(45, 125);
+        // 封口
+        // ctx.closePath();
+        // 描边
+        // ctx.stroke();
+        // 结论 如果只留下两个点 就可以实现画线
+        function drawLine(x1, y1, x2, y2) {
+            ctx.beginPath();
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x2, y2);
+            ctx.stroke();
+        }
+
+        // drawLine(0, 0, 100, 100);
+
+        // console.log(document.documentElement);
+        // 判断是否是触屏
+        var isTouchDevice = 'ontouchstart' in document.documentElement;
+        // console.log(isTouchDevice);
+        if (isTouchDevice) {
+            // 可触屏的设备
+            canvas.ontouchmove = (e) => {
+                // touches 点击的手指数
+                // 获取第一个手指点击的横纵坐标
+                // console.log(e.touches[0]);
+                let x = e.touches[0].clientX;
+                let y = e.touches[0].clientY;
+                // console.log(x, y);
+                ctx.beginPath();
+                ctx.arc(x, y, 10, 0, 2 * Math.PI);
+                ctx.stroke();
+                ctx.fill();
+
+            }
+
+        } else {
+            canvas.onmousedown = (e) => {
+                painting = true;
+                // 记录位置
+                last = [e.clientX, e.clientY];
+            };
+            // 参数 起始横坐标 起始纵坐标 半径 元素宽度 元素高度
+            // 关于e
+            // 此处的e叫什么无所谓
+            // 浏览器会调用canvas.onmousemove
+            // canvas.onmousemove(事件相关信息)
+            canvas.onmousemove = (e) => {
+                // console.log(e.clientX);
+                // console.log(e.clientY);
+                if (painting === true) {
+                    // ctx.fillRect(e.clientX - 5, e.clientY - 5, 10, 10);
+                    // ctx.beginPath();
+                    // 圆心的X轴距离 圆心的Y轴距离 从0画到360度
+                    // ctx.arc(175, 150, 10, 0, 2 * Math.PI);
+                    // 以圆心开始画
+                    // ctx.arc(e.clientX, e.clientY, 10, 0, 2 * Math.PI);
+                    // ctx.stroke();
+                    // ctx.fill();
+
+                    // 画线
+                    // 起点不是00 应该是上一个点
+                    // drawLine(0, 0, e.clientX, e.clientY);
+
+
+                    drawLine(last[0], last[1], e.clientX, e.clientY);
+                    // 更新位置
+                    last = [e.clientX, e.clientY];
+
+                } else {
+                    console.log('nothing to do...');
+                }
+            }
+
+            canvas.onmouseup = () => {
+                painting = false;
+            };
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
