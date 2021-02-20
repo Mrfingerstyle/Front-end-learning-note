@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <strong>资料来源 饥人谷</strong>
+    <hr>
+    <pre>
+        if语句
+            if(表达式){
+                语句1
+            }else{
+                语句2
+            }
+            大括号只有一句的时候可以省略 不建议这样做
+        变态情况
+            表达式里可以非常变态 例如 a = 1
+            语句1里可以非常变态 如 潜逃的if else 
+            语句2里可以非常变态 如 潜逃的if else 
+            锁紧也可以很变态 如面试题常常下套
+            一个等于号 不是等于的意思 此处表示赋值
+            使用 === 表示等于
+            if (a = 1) {
+                
+            }
+            a = 1
+            if (a === 2) 
+                console.log('a === 1');
+                console.log('a === 2');
+            // a === 2
+            // 只作用到第一句语句
+        
+            if (a === 2) 
+            console.log('a === 1'), console.log('a === 2')
+            // undefined 此处表示没有结束
+            
+            第一戒律 不要相信人类 相信机器
+            第二戒律 永远使用最没有歧义的写法
+
+            永远不要省略花括号
+
+            最推荐的写法
+            if () {
+
+            } else if () {
+            
+            } else {
+
+            }
+
+        switch语句
+            不推荐 
+            switch() {
+                case: '':
+                // ... 
+                break;
+                
+                case: '':
+                // ... 
+                break;
+
+                default:
+                // ...
+            }
+            大部分时候必须有break 
+            特殊情况下使用
+            
+        问号冒号表达式    
+            function max(a, b) {
+                return a > b ? a : b;
+            }
+
+        && 短路逻辑
+            A&&B&&C&&D取第一个假值 或 D 
+            并不会取true/false 
+            例如 window.f1 && console.log('f1存在');
+            fn && fn()
+        
+        || 或
+            A||B||C||D取第一个真值 或 D 
+            并不会取true/false 
+            a = a || 100;
+            次数的100是保底值
+    </pre>
+</body>
+
+</html>
