@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <strong>资料来源 饥人谷</strong>
+    <hr>
+    <pre>
+        JS 数据类型
+            number
+                64位浮点数
+                    js 数字的存储形式
+                    浮点是浮动的点 意思是小数点会移动
+                    123.456 1.23456e10^2 12345.6e10^-2 
+                    64位存储一个number 
+                    符号 指数部分 有效数字 
+                    符号占1位 
+                    指数占11位 
+                    有效数字占52位
+                整数 1 
+                小数 0.1
+                科学计数法 1.23E4
+                八进制 0123 0O123
+                十六进制 0X3F
+                二进制 0b11 
+                特殊值
+                    0 +0 -0 
+                    无穷大
+                        infinity +infinity -infinity
+                    无法表示的数字 
+                        NaN 
+                        但它是一个数字 
+                        NaN !== NaN true 
+                        NaN === NaN false 
+                存储范围和精度
+                    范围 忽略符号位
+                        指数拉满 有效数字拉满
+                        Number.MAX_VALUE 
+                        Number.MIN_VALUE
+                    精度
+                        最多只能到52+1个二进制位表示有效数字
+                        最多保存15位有效数字 
+                        16位也可以 以90开头也可 
+            string
+                每个字符两个字节(阉割版的UTF8) 定长的
+                单引号 ''
+                双引号 ""
+                反引号 ``
+                引号不属于字符串的一部分
+                就像书名号不属于书名的一部分
+                转义
+                    'it\'s ok'
+                多行字符串
+                    let s = `test
+                    word 
+                    test`
+                字符串的属性
+                    对象有属性 为什么字符串有属性
+                    字符串的长素
+                    '\n\t\r'/.length 3
+                    `\\\\\\`.length 3 
+                    ''.length 0
+                    ' '.length 1
+                    通过序号获取字符
+                        var s = '123'
+                        s[0] '1'
+                    base64转码
+                        window.btoa 
+                            正常字符串转为base64编码的字符串
+                            window.btoa('123')
+                        window.atob  
+                            base64编码的字符串转为原来的字符串
+                        一般用来隐藏招聘中的邮箱
+            boolean
+                true false 
+                if (value)
+                    如果value是布尔值 
+                    如果value不是布尔值 
+                        规则
+                            五个falsy值 相当于false但不是false值
+                            undefined null 0 NaN ''
+
+            symbol
+                不怎么常用的类型
+                Symbol 生成一个全局唯一的值
+                var race = {
+                    protoss: Symbol(),
+                    terran: Symbol(),
+                    zerg: Symbol()
+                }
+                
+                    race.protoss !== race.terran // true
+                    race.protoss !== race.zerg // true
+                
+
+            两种空类型
+                没有本质区别
+                    如果变量声明了 没有赋值 默认值是undefined
+                    如果一个函数 没有写return 默认return undefined 
+                    前端习惯把非对象的空值写为undefined 对象的空写为null  仅仅是习惯而已
+
+            undefined
+
+
+            null
+            object
+            总结 4基2空1对象
+        以下不是数据类型
+            数组 函数 日期 
+            他们都是对象
+    </pre>
+</body>
+
+</html>
