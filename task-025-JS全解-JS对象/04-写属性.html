@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>
+        写属性
+        修改和增加属性
+            直接赋值
+                let obj = {name: 'frank'}
+                obj.name = 'frank' // name是字符串
+                obj['name'] = 'frank'
+                let key = 'name' obj[name] = 'frank'
+                
+                let key = 'name' obj.key = 'frank' wrong 
+                因为obj.key 等价 obj['key'] 
+                
+            批量赋值
+                Object.assign(obj, {age: 18, gender: 'man'})
+                
+            修改和增加共有属性
+            JS脆弱性
+                无法通过自身修改和增加共有属性
+                let obj = {}, obj2 = {} 
+                obj.toString = 'xxx' 只会改obj自身属性
+                obj2.toString 还是在原型上
+
+                如果一定要修改
+                obj.__proto__.toString = 'xxx' 不推荐
+                Object.prototype.toString = 'xxx'
+                一般来说 不要修改原型 会引起很多问题
+                obj.__proto__ === window.Object.prototype
+            
+            修改隐藏属性
+                不推荐使用__proto__
+                let obj = {name: 'frank'}
+                let obj_2 = {name: 'jack'}
+                let common = {kind: 'human'}
+                obj.__proto__ = common
+                obj_2.__proto__ = common
+
+                推荐使用Object.create 
+                    以common为原型创建对象
+                    let obj = Object.create(common)
+                    obj.name = 'frank'
+                    let obj_2 = Object.create(common)
+                    obj.name = 'jack'
+                    规范大概的意思是 要改一开始就改 不要后来再改
+                原型链
+                注意 所有__proto__代码强烈不推荐写
+                
+                增加属性
+                    已有属性则修改 没有属性则增加
+
+                原型的本质是对象 
+                共有属性是属性 
+                原型包含了共有属性
+
+                obj.xxx === undefined 
+                    不能判断xxx是不是obj的属性
+                    
+                
+            </pre>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>资料来源 饥人谷</h3>
+    <hr>
+    <pre>
+        读对象的属性时，
+            如果使用 [ ] 语法，那么 JS 会先求 [ ] 中表达式的值，注意区分表达式是变量还是常量
+            如果使用点语法，那么点后面一定是 string 常量
+        
+        对象 object
+            第七种数据类型 唯一的复杂数据类型
+            定义
+                无序的数据组合 
+                键值对的集合
+            写法
+                let obj = {'name': 'frank', 'age': 18}
+                let obj = new Object({'name': 'frank'})
+                console.log({'name': 'frank', 'age': 18})
+            细节
+                键名是字符串 不是标识符 可以包含任意字符
+                引号可忽略 省略之后只能写标识符
+            属性名
+                所有属性名会自动变为字符串
+                Object.keys(obj)可以获取所有的key  
+                加引号是安全的写法
+                变量作为属性名 [变量名]
+                let n = 'name'
+                let obj = {
+                    [n]: 'frank'
+                }
+                对比
+                    不加[] 的属性名会自动变为字符串
+                    加[] 会作为变量求值
+                    值如果不是字符串 会自动变为字符串
+                其他
+                    除了字符串 symbol也能做属性名
+                    let a = Symbol()
+                    在学习迭代的时候用到
+
+            对象的隐藏属性
+                JS中每个对象都有一个隐藏属性
+                这个隐藏属性存储着共有属性组成的对象的地址
+                这个共有属性组成的对象叫做原型
+                也就是说 隐藏属性存储着原型的地址
+                代码示例
+                var obj = {}
+                obj.toString() 
+                obj隐藏属性对应的对象上有toString()
+                
+
+            属性值
+                可以是任何值
+    </pre>
+</body>
+
+</html>
