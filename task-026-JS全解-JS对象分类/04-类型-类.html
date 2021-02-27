@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>资料来源 饥人谷</h3>
+    <hr>
+    <pre>
+        数组对象
+        定义一个数组
+            let arr = [1, 2, 3]
+            let arr = new Array(1, 2, 3)
+            let arr = new Array(3)
+        数组对象自身属性
+            '0' '1' '2' 'length'
+            属性名没有数字 只有字符串
+        共有属性
+            'push' 'pop' 'shift' 'unshift' 'join'
+        
+        函数对象
+        定义一个函数
+            function fn(x, y) {return x + y}
+            let fn = function fn() {}
+            let fn = (x, y) => {x + y}
+            let fn = new Function() {}
+        函数自身属性
+            name length 
+        函数对象共有属性
+            call apply bind 
+        
+        JS终极问题
+            window是谁构造
+                Window 
+                可以通过constructor属性看出构造者
+            window.Object是谁构造的
+                window.Function 
+                因为所有函数都是window.Function构造的
+            window.Function 是谁构造
+                window.Function 
+                因为所有函数都是window.Function构造的
+                自己构造了自己？
+                浏览器构造了Function 然后指定它的构造者是自己
+
+        ES6引入了新语法
+            class统治
+            class引入了新语法
+            新语法怎么学
+                一次看文档看完
+                用一点 学一点 建议
+
+            原型 和 类 
+                都是对对象进行分类的
+
+            JavaScript 其实很优美很简单 只是你想复杂了而已：
+            prototype 指向一块内存，这个内存里面有共用属性
+            __proto__ 指向同一块内存
+            prototype 和 __proto__ 的不同点在于
+            prototype 是构造函数的属性，
+            而 __proto__ 是对象的属性
+            难点在于 构造函数也是对象
+            如果没有 prototype，那么共用属性就没有立足之地
+            如果没有 __proto__，那么一个对象就不知道自己的共用属性有哪些。
+
+
+    </pre>
+    <script>
+        class Person {
+            constructor(width) {
+                this.width = width
+            }
+            getArea() {
+                return this.width * this.width
+            }
+            getLength() {
+                return this.width * 4
+            }
+            get Area2() {
+                return this.width * this.width
+            }
+        }
+        new Person(3).Area2
+        function Person(name, age) {
+            // 你来补全代码
+            this.name = name
+            this.age = age
+        }
+        Person.prototype.sayHi = function () {
+            console.log('你好，我叫' + this.name);
+        }
+        class Person {
+            // 你来补全代码
+            constructor(name, age) {
+                this.name = name
+                this.age = age
+            }
+            sayHi() {
+                return '你好，我叫' + this.name
+            }
+        }
+
+        let person = new Person('frank', 18)
+        person.name === 'frank' // true
+        person.age === 18 // true
+        person.sayHi() // 打印出「你好，我叫 frank」
+
+        let person2 = new Person('jack', 19)
+        person2.name === 'jack' // true
+        person2.age === 19 // true
+        person2.sayHi() // 打印出「你好，我叫 jack」
+
+    </script>
+</body>
+
+</html>

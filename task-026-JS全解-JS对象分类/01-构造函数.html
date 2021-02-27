@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>资料来源 饥人谷</h3>
+    <hr>
+    <pre>
+        对象需要分类吗
+        做一个小程序
+            输出各种形状的面积周长
+            写出一个正方形
+            需要12个正方形
+                可以写很多对象
+                也可以使用循环解决
+                    但是此时 width 全部是5 怎么办
+                        设置宽度数组
+                        但是 此时函数完全重复 占用了太多内存 
+                        借助原型
+
+                
+    </pre>
+    <script>
+        // 1
+        let square = {
+            width: 5,
+            getArea() {
+                return this.width * this.width
+            },
+            getLength() {
+                return this.width * 4
+            }
+        }
+        // 2
+        let squareList = []
+        for (let i = 0; i < 12; i++) {
+            squareList[i] = {
+                width: 5,
+                getArea() {
+                    return this.width * this.width
+                },
+                getLength() {
+                    return this.width * 4
+                }
+            }
+        }
+        // 3 
+        // 内存图 重复的函数 函数即对象 重复了24个函数
+        let squareList = []
+        let widthList = [5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6]
+        for (let i = 0; i < 12; i++) {
+            squareList[i] = {
+                width: widthList[i],
+                getArea() {
+                    return this.width * this.width
+                },
+                getLength() {
+                    return this.width * 4
+                }
+            }
+        }
+        // 借助原型
+        // 但是创建的square的代码太分散了
+        let squareList = []
+        let widthList = [5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6]
+        let squarePrototype = {
+            getArea() {
+                return this.width * this.width
+            },
+            getLength() {
+                return this.width * 4
+            }
+        }
+        for (let i = 0; i < 12; i++) {
+            squareList[i] = Object.create(squarePrototype)
+            squareList[i].width = widthList[i]
+        }
+        // 把代码抽离到函数中
+        let squareList = []
+        let widthList = [5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6]
+        // 此函数叫构造函数 可以创建一个对象
+        // createSquare构造函数 和 squarePrototype原型 是分散的 能否整合
+        function createSquare(width) {
+            // 以原型创建空对象
+            let obj = Object.create(squarePrototype);
+            // 添加属性
+            obj.width = width
+            // 返回
+            return obj
+        }
+        let squarePrototype = {
+            getArea() {
+                return this.width * this.width
+            },
+            getLength() {
+                return this.width * 4
+            }
+        }
+        for (let i = 0; i < 12; i++) {
+            squareList[i] = createSquare(widthList[i])
+        }
+        // 函数和原型整合
+        let squareList = []
+        let widthList = [5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6]
+        // 此函数叫构造函数 可以创建一个对象
+        // createSquare构造函数 和 squarePrototype原型 是分散的 能否整合
+        function createSquare(width) {
+            // 以原型创建空对象
+            let obj = Object.create(createSquare.squarePrototype);
+            // 添加属性
+            obj.width = width
+            // 返回
+            return obj
+        }
+        createSquare.squarePrototype = {
+            getArea() {
+                return this.width * this.width
+            },
+            getLength() {
+                return this.width * 4
+            },
+            constructor: createSquare
+        }
+        for (let i = 0; i < 12; i++) {
+            squareList[i] = createSquare(widthList[i])
+            console.log(squareList[i].constructor);
+        }
+
+        // 函数 与 原型结合 重写 
+        let squareList = []
+        let widthList = [5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6]
+        // 构造函数
+        function Square(width) {
+            this.width = width
+        }
+        Square.prototype.getArea = function () {
+            return this.width * this.width
+        }
+        Square.prototype.getLength = function () {
+            return this.width * 4
+        }
+        for (let i = 0; i < 12; i++) {
+            squareList[i] = new Square(widthList[i])
+            console.log(squareList[i].constructor);
+        }
+        // 每个函数都有prototype属性
+        // 每个prototype都有constructor属性
+
+        // 总结
+        /*
+            new X()自动做了4件事
+            自动创建空对象
+            自动为空对象关联原型 原型地址指定为X.prototype
+            自动将空对象作为this关键字运行构造函数
+            自动return this
+
+            构造函数X
+            X函数本身负责给对象本身添加属性
+            X.prototype对象负责保存对象的共有属性
+        */
+
+        /*
+        代码规范
+        大小写
+            所有构造函数首字母大写
+            创建的对象的首字母小写
+        词性
+            new 后面的函数 使用名词形式
+            其他函数 一般使用动词开头
+            其他规则以后再说
+            
+
+
+        */
+
+
+
+
+
+    </script>
+</body>
+
+</html>

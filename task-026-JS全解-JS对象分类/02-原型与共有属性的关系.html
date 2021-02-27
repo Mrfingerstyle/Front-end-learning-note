@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>资料来源 饥人谷</h3>
+    <hr>
+    <pre>
+        X.prototype 存储的是原型的地址
+        共有属性的集合是原型
+        如何确定一个对象的原型
+            new X() 原型是 X.prototype 
+            为什么 因为new操作故意这么做
+                new X() 做了4件事
+                自动创建空对象
+                自动为空对象关联原型 原型地址指定为X.prototype
+                自动将空对象作为this关键字 运行构造函数
+                自动return this
+        结论
+            你是谁构造的 
+            你的原型就是谁的prototype属性 
+            对应的对象
+        
+        对象.__proto__ === 其构造函数.prototype 
+        squareList[0].__proto__ === Square.prototype
+
+        Object.prototype 没有原型
+        Object.prototype.__proto__ null 
+
+        构造函数 prototype new 
+
+    </pre>
+</body>
+
+</html>

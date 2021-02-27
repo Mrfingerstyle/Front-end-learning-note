@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>资料来源 饥人谷</h3>
+    <hr>
+    <pre>
+        需求 正方形有了 写个圆形
+        需求 圆形有了 写个长方形
+
+        对象需要分类吗 
+            需要 不同对象有不同的功能 
+            有很多对象拥有一样的属性和行为 需要把他们分为同一类
+            而Object创建出来的对象 是最没有特点的对象
+        
+        类型 类 
+        类型 
+            类型是JS数据的分类 7种 
+        类 
+            针对对象的分类 无数种
+            常见 Array Function Date RegExp
+            
+    </pre>
+    <script>
+        // 圆形
+        function Circle(radius) {
+            this.radius = radius
+        }
+        Circle.prototype.getLength = function () {
+            return Math.PI * 2 * this.radius
+        }
+        Circle.prototype.getArea = function () {
+            return Math.pow(radius, 2) * Math.PI
+        }
+
+        // 长方形
+        function Rect(width, height) {
+            this.width = width
+            this.height = height
+        }
+        Rect.prototype.getArea = function () {
+            return this.width * this.height
+        }
+        Rect.prototype.getLength = function () {
+            return (this.width + this.height) * 2
+        }
+
+
+    </script>
+</body>
+
+</html>
