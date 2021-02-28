@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>资料来源 饥人谷</h3>
+    <hr>
+    <pre>
+        数组变换
+            map 
+                map([x, x, x], cook)
+                对每一项调用函数
+                n 变 n 
+                一一映射
+                不改变原数组 
+
+            filter 
+                根据条件过滤元素
+                n 变少
+                不改变原数组 
+
+            reduce 
+                不改变原数组 
+
+        面试题 数据变换
+        let arr = [
+            { 名称:'动物', id: 1, parent: null},
+            { 名称:'狗', id: 2, parent: 1},
+            { 名称:'猫', id: 3, parent: 1}
+        ]
+        {
+            id: 1, 名称: '动物 ', children: [
+            {id: 2, 名称: '狗 ', children: null},
+            {id: 3, 名称: '猫 ', children: null},
+            ]
+        }
+
+    </pre>
+    <script>
+        let arr = [1, 2, 3, 4, 5, 6]
+        arr.map(item => item * item)
+        arr.filter(item => item % 2 == 0)
+        // 求和
+        arr.reduce((sum, item) => { return sum + item }, 0)
+
+        // 平方和
+        arr.reduce((result, item) => { return result.concat(item * item) }, [])
+
+        // 偶数
+        arr.reduce((result, item) => {
+            if (item % 2 == 1) { return result } else {
+                return result.concat(item)
+            }
+        }, [])
+
+        arr.reduce((result, item) => result.concat(item % 2 === 1 ? [] : item), [])
+
+        let arr = [
+            { 名称: '动物', id: 1, parent: null },
+            { 名称: '狗', id: 2, parent: 1 },
+            { 名称: '猫', id: 3, parent: 1 }
+        ]
+
+        arr.reduce((result, item) => {
+            if (item.parent === null) {
+                result.id = item.id
+                result['名称'] = item['名称']
+            } else {
+                result.children.push(item)
+                delete item.parent
+                item.children = null
+            }
+            return result
+        }, { id: null, children: [] })
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

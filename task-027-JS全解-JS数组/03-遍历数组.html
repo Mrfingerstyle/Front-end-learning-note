@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>资料来源 饥人谷</h3>
+    <hr>
+    <pre>
+        查看所有元素
+            查看所有属性名
+            let arr = [1, 2, 3, 4, 5] 
+            arr.x = 'xxx'
+            Object.keys(arr)
+            <!-- for in 一般用来访问对象 -->
+            for (let key in arr) {console.log(`${key} : ${arr[key]}`)}
+
+            查看属性名和值
+                访问数组 使用for let ...
+                for (let i = 0; i < arr.length; i++) {
+                    console.log(`${i} : ${arr[i]}`)
+                }
+
+                arr.forEach(function(item, index) {
+                    console.log(`${index} : ${item}`)
+                })
+
+                也可以使用forEach map等原型上的函数
+
+                forEach是一个槛
+                自己写一个forEach
+                原理 遍历数组 每一次都调用那个函数
+
+                function forEach(arr, fn) {
+                    for (let i = 0; i < arr.length; i++) {
+                        fn(arr[i], i, arr);
+                    }
+                }
+        
+                forEach([1, 2, 3], function (x, y, z) {
+                    console.log(y, x, z);
+                })
+
+                for循环和forEach基本功能一致 
+                不同在于break关键字的使用
+                前者是块作用域 后者是函数作用域
+
+                查看单个元素
+                    arr[0]
+                
+                索引越界
+                    arr[arr.length] === undefined 
+                    arr[-1] === undefined 
+                
+                判断元素是否在数组中
+                    arr.indexOf(10)
+                    不存在返回-1 否则返回下标
+                
+                使用条件查找元素
+                    arr.find(item => item % 2 == 0)
+                    返回元素
+                
+                返回对应元素的下标
+                    arr.findIndex(item => item % 2 == 0)
+                    找到第一个偶数的索引
+                
+                
+    </pre>
+    <script>
+        function forEach(arr, fn) {
+            for (let i = 0; i < arr.length; i++) {
+                fn(arr[i], i, arr);
+            }
+        }
+
+        forEach([1, 2, 3], function (x, y, z) {
+            console.log(y, x, z);
+        })
+
+    </script>
+</body>
+
+</html>

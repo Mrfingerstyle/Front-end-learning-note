@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>资料来源 饥人谷</h3>
+    <hr>
+    <pre>
+        数组对象 一种特殊的对象
+        JS其实没有真正的数组 只是用对象模拟数组
+        JS数组不是典型数组
+            典型数组
+                元素的数据类型相同
+                使用连续内存存储
+                使用数字下标获取元素
+            JS数组不是这样
+                元素的数据类型可以不同
+                内存不一定连续 对象随机存储
+                不能通过数字下标 而是通过字符串下标
+                这意味者数组可以有任何key 
+                例如 let arr = [1, 2, 3]
+                arr['xxx'] = 1
+        
+        创建数组
+            新建
+                let arr = [1, 2, 3]
+                let arr = new Array(1, 2, 3)
+                let arr = new Array(3)
+            转化
+                let arr = '1,2,3'.split(',')
+                let arr = '123'.split('')
+                Array.from('123')
+            伪数组
+                let divList = document.querySelector('div')
+                伪数组的原型链中并没有数组的原型
+                没有数组共用属性的数组 就是伪数组
+        
+            合并数组
+                arr1.concat(arr2)
+                返回新数组
+            截取数组的一部分
+                arr.slice(1) // 从第二个元素开始
+                arr.slice(0) // 全部截取
+                注意 JS只提供浅拷贝 
+                不改变原数组
+                let arr = arr.slice(0) 复制数组
+                
+            
+
+
+
+
+                
+
+
+    </pre>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <script>
+        let divs = document.getElementsByTagName('div');
+        console.log(divs);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>资料来源 饥人谷</h3>
+    <hr>
+    <pre>
+        删元素
+            跟对象一样
+            let arr = ['a', 'b', 'c']
+            delete arr[0]
+            删除后长度还是3 保留空位
+            全部删除元素后 长度依然是3 
+            只有长度 没有对应的下标 稀疏数组
+
+            如果直接改length
+                arr.length = 1
+                会删除多余的元素
+                注意 不要改length 
+            
+            arr.shift() 返回删除的元素 长度改变
+            arr.pop() 返回删除的元素 长度改变
+            arr.slice(index, 1) 删除index的一个元素
+            arr.slice(index, 3) 删除index的3个元素
+
+            arr.slice(index, 1, 'x') 并在删除位置添加'x' 可实现替换功能
+            arr.slice(index, 1, 'x', 'y') 并在删除位置添加'x' 'y'
+
+            可以删除 添加 修改
+            
+
+            
+            
+    </pre>
+</body>
+
+</html>
