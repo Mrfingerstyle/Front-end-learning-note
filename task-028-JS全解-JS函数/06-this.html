@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>
+        资料来源 饥人谷
+    </pre>
+    <script>
+        // JS三座大山 
+        // 原型 原型链
+        // this
+        // AJAX
+
+        // arguments 和 this 
+        // 每个函数都有 除了箭头函数
+
+        function fn() {
+            console.log(arguments);
+            console.log(this);
+        }
+
+        // 如何传arguments 
+        fn(1, 2, 3)
+        // arguments 是参数的伪数组
+        // this 是 window 
+
+        // 如何传this
+        // 不给任何条件 this默认window
+        // 目前可以用fn.call(xxx, 1, 2, 3) 传入this arguments
+
+        function fn() {
+            'use strict'
+            console.log(this);
+        }
+        fn.call(1)
+        // 如果没有严格模式 会将 1 包装为对象
+        // 加了严格模式 会返回 1
+
+        // 结论 
+        // this是隐藏参数
+        // arguments是普通参数
+        // this实际上是参数
+
+        // JS在每个函数中加了this
+        // 用this获取那个对象
+        let person = {
+            name: 'frank',
+            sayHi() {
+                console.log('hello ' + this.name);
+            }
+        }
+        /*
+        person.sayHi() 相当于 person.sayHi(person)
+        然后person被传给this (person是个地址)
+        这样 每个函数都能用 this 获取一个未知对象的引用了
+        person.sayHi()会隐式的把person作为this传给sayHi
+        方便sayHi获取person对应的对象
+        */
+
+        /*
+        总结
+            我们想让函数获取对象的引用
+            但是并不想通过变量名做到
+            python通过额外的self参数做到
+            JS通过额外的this做到
+            person.sayHi()会把person自动传给sayHi sayHi 可以通过this引用person
+            this就是最终调用sayHi的对象
+        其他
+            注意person.sayHi 与 person.sayHi() 区别
+            注意person.sayH()  (person.sayHi)()
+
+        */
+
+        /*
+        引出一个问题
+        person.sayH()
+        person.sayH(person)
+        省略形式反而是对的 完整形式是错的
+        JS怎么解决这种不和谐
+
+        两种调用方法
+            小白调用
+            person.sayH() 自动把person传入函数里 作为this 
+
+            大师调用
+            person.sayHi.call(person)
+            需要手动把person传入函数中 作为this
+
+            默认用大师调用方法
+            
+            
+            
+
+
+
+        */
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

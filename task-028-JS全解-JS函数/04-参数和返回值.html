@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>资料来源 饥人谷</h3>
+    <hr>
+    <script>
+        // 形式参数
+        function add(x, y) {
+            return x + y
+        }
+        // x y 是形式参数 不是实际参数
+        // 形参可以认为是变量声明
+        // 等价于下面的代码
+        function add() {
+            var x = arguments[0]
+            var y = arguments[1]
+            return x + y
+        }
+        // 形参可多可少
+        function add(x) {
+            return x + arguments[1]
+        }
+        add(1, 2)
+        // 形参只是给参数取名字
+
+        // 返回值
+        // 每个函数都有返回值
+        // 没有return 返回值是undefined
+        // 函数执行完了才会返回
+        // 只有函数有返回值
+
+        // 1 + 2 的值是 3
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

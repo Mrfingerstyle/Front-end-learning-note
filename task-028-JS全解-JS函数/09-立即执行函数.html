@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>资料来源 饥人谷</pre>
+    <script>
+        // 立即执行函数
+        // 声明匿名函数 直接调用
+        (function () {
+            let a = 2
+            console.log(a);
+        })()
+
+        // 推荐使用 !
+        !function () {
+            let a = 2
+            console.log(a);
+        }()
+
+        /*
+        在ES5时代
+        为了得到局部变量 必须引入一个函数
+        但是这个函数如果有名字 就得不偿失
+        于是这个函数必须是匿名函数
+        声明匿名函数 然后立即加个()执行它
+        但是JS标准认为这种语法不合法
+        所以JS程序员寻求各种方法
+        最终发现 只要在匿名函数前加个运算符即可
+        ！ ～ () + - 都可以
+        但是有些运算符会往上走
+        此处推荐用!解决
+        */
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

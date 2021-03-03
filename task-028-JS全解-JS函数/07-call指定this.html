@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>资料来源 饥人谷</pre>
+    <script>
+        let person = {
+            name: 'frank',
+            sayHi() {
+                console.log('hello ' + this.name);
+            }
+        }
+        person.sayHi.call({ name: '1' })
+
+        Array.prototype.forEach_2 = function (fn) {
+            for (let i = 0; i < this.length; i++) {
+                fn(this[i], i)
+            }
+        }
+
+        let arr = [1, 2, 3]
+        // 大师写法
+        arr.forEach_2.call(arr, function (x, y) {
+            console.log(y, x);
+        })
+        console.log('----');
+        // 小白写法
+        arr.forEach_2(function (x, y) {
+            console.log(y, x);
+        })
+
+        // this 是什么
+        // 由于大家使用forEach_2的时候总是使用 forEach_2
+        // arr就被自动传给forEach了
+        // this不一定是数组  还可能是对象
+
+        // this两种使用方法
+        // 隐式传递
+        // fn(1, 2) 等价 fn.call(undefined, 1, 2)
+        // obj.child.fn(1)  obj.child.fn.call(obj.child, 1)  
+        // 显示传递
+        // fn.call(undefined, 1, 2)
+        // fn.apply(undefined, [1, 2])
+
+        // 绑定this 
+        function f1(p1, p2) {
+            console.log(this, p1, p2);
+        }
+        // f2是f1绑定了this之后的新函数
+        let f2 = f1.bind({ name: 'frank' })
+        // f2() 等价于f1.call({ name: 'frank' })
+        f2()
+
+
+        // .bind还可以绑定其他参数
+        let f3 = f1.bind({ name: 'frank' }, 'hi')
+        f3()
+        // f1.call({ name: 'frank' }, 'hi')
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

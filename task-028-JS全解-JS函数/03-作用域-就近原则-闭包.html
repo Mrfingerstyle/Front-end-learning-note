@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>资料来源 饥人谷</h3>
+    <hr>
+    <pre>
+        作用域
+            每个函数都会创建一个作用域
+        全局变量 局部变量
+            在顶级作用域声明的变量是全局变量
+            window的属性是全局变量
+            window.a = 1
+
+            其他都是局部变量
+
+        作用域规则
+            如果多个作用域有同名变量a 
+            那么查找a的声明时  就向上取最近的作用域
+            简称就近原则
+            查找a的过程 与 函数执行无关
+            但a的值与函数执行有关
+            
+            跟函数执行无关的作用域是静态作用域
+            跟函数执行有关的作用域是动态作用域
+
+        
+            
+
+        
+
+    </pre>
+    <script>
+        function fn() {
+            // 局部变量
+            let a = 1
+        }
+        console.log(a);
+        // a 不存在
+        // 是不是因为fn没执行
+        // 就算fn执行了 也访问不到作用域里面的a
+
+        function fn() {
+            // 局部变量
+            let a = 1
+        }
+        fn()
+        console.log(a);
+        // a 不存在
+
+        function f1() {
+            let a = 1
+            function f2() {
+                let a = 2
+                console.log(a);
+            }
+            console.log(a);
+            a = 3
+            f2()
+        }
+        f1()
+        // 1
+        // 2
+
+        function f1() {
+            let a = 1
+            function f2() {
+                let a = 2
+                function f3() {
+                    console.log(a);
+                }
+                a = 22
+                f3()
+            }
+            console.log(a);
+            a = 100
+            f2()
+        }
+        f1()
+        // 1
+        // 22
+        // 如果一个函数用到了外部变量 
+        // 那么这个函数加这个变量就叫做闭包
+        // 上例中的a和f3组成了闭包
+        // 闭包的用途以后讲
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

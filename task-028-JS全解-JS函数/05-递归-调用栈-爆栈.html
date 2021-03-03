@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>
+        资料来源 饥人谷
+    </pre>
+    <script>
+        /*
+        调用栈
+            JS引擎在调用一个函数前
+            需要把函数所在的环境push到一个数组中 这个数组 叫调用栈
+            等函数执行完毕 就把环境pop出来
+            人后return到之前的环境 继续执行后续代码
+        */
+        // 举例
+        // console.log(1);
+        // console.log("1 + 2 = " + add(1, 2));
+        // console.log(2);
+
+        // 递归函数 自己调用自己 
+        // 先递进 再回归
+        // 阶乘函数
+        function multi(n) {
+            if (n === 1) {
+                return 1
+            } else {
+                return n * multi(n - 1)
+            }
+        }
+        function f(n) {
+            return n !== 1 ? n * f(n - 1) : 1
+        }
+        console.log(multi(3));
+
+        // 递归函数的调用栈
+        // 调用栈最长多少
+        // Chrome 12578
+        // Firefox 26773
+        // Node 12536
+
+        // 爆栈 调用栈中压入的栈过多 程序就会崩溃
+
+        // 函数提升
+        function fn() {
+
+        }
+        // 不管你把具名函数声明在哪里 都会跑到第一行
+        // 什么不是函数提升
+        // let fn = function() {}
+        // 这是赋值 右边的匿名函数声明不会提升
+        add(1, 2)
+        function add(x, y) {
+            return x + y
+        }
+        // 3
+
+    </script>
+</body>
+
+</html>

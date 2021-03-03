@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>资料来源 饥人谷</h3>
+    <hr>
+    <pre>
+        函数是一种特殊对象
+        定义函数
+            具名函数
+                function name() {}
+            匿名函数
+                let fn = function(x, y){return x + y}
+                右边也叫函数表达式
+            
+                let fn = function name() {}
+                name() 不能使用
+                因为name的作用在等号右边 fn() 可以使用
+
+            箭头函数
+                let f = x => x * 2
+                let f = (x, y) => x * y
+                加了花括号 必须写return语句
+                let f = (x, y) => {
+                    console.log('hi')
+                    return x * y
+                }
+                直接返回对象会出错 需要加圆括号
+                let f = (x, y) => ({name: x, age: y})
+                
+            构造函数
+                let f = new Function('x', 'y', return x + y)
+                基本没人用 但是能让你知道函数是谁构造的
+                所有函数都是Function构造出来的
+                包括Object Array Function也是
+            
+            函数自身 函数调用
+                fn fn()
+                fn 不会有结果 
+                fn = () => console.log('hi')
+                let fn2 = fn 
+                fn保存匿名函数的地址
+                这个地址被复制给fn2 
+                fn2调用了匿名函数
+                fn fn2 都是匿名函数的引用而已
+                真正的函数既不是fn 也不是fn2 
+                
+                
+                
+            
+
+                
+                
+
+                
+            
+            
+
+    </pre>
+</body>
+
+</html>
