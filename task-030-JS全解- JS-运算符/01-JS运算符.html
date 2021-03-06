@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>
+        资料来源 饥人谷
+    </pre>
+    <script>
+        /* 
+        算术运算符
+            + - * / 
+            不能除于0
+            % 取余
+            -1 % 7 -1
+            ** 指数  2 ** 2 === 4
+            自增自减
+                ++ -- 
+                区别 
+                前置 先加再计算
+                后置 先赋值  再加
+                a += 1 建议
+            + 求值运算符
+                +'8' === 8
+            - 负数运算符
+                '2' - 1 === 1
+            不同类型不要加起来
+
+            string运算
+                + 连接字符串
+                1 + '2' '12'
+        比较运算符
+            > <
+            >=
+            <=
+            == 模糊相等 
+                永远不要使用 == 使用===代替 
+                == 问题在于 它总是进行自动类型转换
+                [] == false true
+                ({}) == false false
+            !=
+            ===
+                判断标准简单
+                基本类型看值 
+                对象看地址
+                [] === [] false 地址不同
+                {} === {} false 
+                
+            !==
+                NaN !== NaN
+            
+        布尔运算符
+            ||
+            && 
+            !
+            短路逻辑
+                console&&console.log&&console.log('hi')
+                以防console不存在 报错
+                a = a || 100
+                a的保底值
+                防御性编程
+                function add(n) { 
+                    n = n || 0
+                    return n + 1 
+                }
+                
+        二进制运算符
+            或 与 否 
+            | & ～
+            异或 ^ 相同为0 不同为1
+            左移 右移
+            <<  >>
+            头部补零的右移运算符
+            >>>
+            工作中很少有 面试问
+            与运算判断奇偶
+                偶数 & 1 = 0
+                奇数 & 1 = 1
+            取整
+            ～～6.83 6
+            位运算会消除小数部分
+            6.83 >> 0 6
+            6.83 << 0 6
+            6.83 >>> 0 6
+            6.83 | 0 6
+
+            ^交换a b的值
+            var a = 5
+            var b = 8
+            a ^= b
+            b ^= a
+            a ^= b
+            console.log(a)
+            console.log(b)
+            
+            新语法 [a, b] = [b, a]
+
+        点运算符
+            对象.属性名
+            作用 读取 设置 对象的属性值
+            疑问 
+                不是对象 为什么也可以有属性
+                JS有特殊逻辑 点前面不是对象 就把它变为 封装对象 
+                number 变为 Number 
+                let a = 1 
+                创建封装对象 
+                string - String 
+                bool - Boolean 
+                程序员从来不用这三种对象 只用简单类型
+
+        void运算符
+            void 表达式 语句
+            作用 求表达式的值 或 执行语句
+            然后void的值总是为undefined 
+            需求
+                <!-- <a href="http://example.com" onclick="console.log('hi');return false">test</a> -->
+                <!-- return 假值可以阻止默认跳转 -->
+                <a href="javascript:void;" onclick="console.log()">test</a>
+                // 推荐写法
+                
+        逗号运算符
+            a = (1, 2)     
+            a = 2
+            将表达式最后的值作为表达式的值
+            // 这种写法省略了return 写出两句语句的效果
+            let f = x => (console.log('hi'), x+1)
+            f(1)
+        
+            
+            
+            
+            
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                */
+            </script>
+    <a href="javascript:;" onclick="console.log('hi')">test</a>
+    
+</body>
+
+</html>
