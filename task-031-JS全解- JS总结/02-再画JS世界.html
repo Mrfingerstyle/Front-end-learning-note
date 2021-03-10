@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>资料来源 饥人谷</pre>
+    <script>
+        /*
+        JS世界的构造顺序 续
+            用 new Object() 创建 obj1
+            new 会将 obj1 的原型 __p 设置为 Object.prototype，也就是 #101
+            用 new Array() 创建 arr1
+            new 会将 arr1 的原型 __p 设置为 Array.prototype，也就是 #404
+            用 new Function 创建 f1
+            new 会将 f1 的原型 __p 设置为 Function.prototype，也就是 #208
+            
+            
+        JS世界的构造顺序 续
+            自己定义构造函数 Person，函数里给 this 加属性
+            Person 自动创建 prototype 属性和对应的对象 #502
+            在 Person.prototype #502 上面加属性
+            用 new Person() 创建对象 p
+            new 会将 p 的原型 __p 设为 #502
+
+        构造函数
+            用来构造对象
+            预先存好对象的原型 原型的原型是根
+            new的时候将对象的__proto__ 指向原型
+        
+        对象
+            所有对象都直接或间接指向根对象
+            如果对象想要分类 就在原型链上加一环
+            用构造函数可以加这一环
+        
+        如果加了一环 还想再加一环 怎么办
+        以后继承解释
+
+
+        */
+    
+    </script>
+</body>
+
+</html>
