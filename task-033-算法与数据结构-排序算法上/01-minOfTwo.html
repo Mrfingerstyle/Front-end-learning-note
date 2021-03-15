@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>资料来源 饥人谷</pre>
+    <script>
+        /*
+        找出两个数的最小值
+        */
+        // 初始版本
+        // let minOfTwo = numbers => numbers[0] < numbers[1] ? numbers[0] : numbers[1]
+        // 优化代码
+        let minOfTwo = ([a, b]) => a < b ? a : b
+        // 析构赋值
+        // 调用
+        minOfTwo([1, 2])
+        // this留 空
+        console.log(minOfTwo.call(null, [1, 2]));
+
+        // 已存在API 
+        // JS内置Math.min
+        Math.min(1, 2)
+        Math.min.call(null, 1, 2)
+        Math.min.apply(null, [1, 2])
+
+        // 关于Math
+        // 看起来Math 看起来和 Object一样是构造函数
+        // 但是它只是一个对象
+        // 这一唯一特例 首字母大写是构造函数
+        // new Math() Math is not a constructor
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>资料来源 饥人谷</pre>
+    <script>
+        /*
+        三个数字最小
+        */
+        let minOfTwo = ([a, b]) => a < b ? a : b
+        // let minOfThree = ([a, b, c]) => {
+        //     return minOfTwo([minOfTwo(a, b), c])
+        // }
+        // 或者
+        let minOfThree = ([a, b, c]) => {
+            return minOfTwo([a, minOfTwo([b, c])])
+        }
+
+        // 推理
+        let minOfFour = ([a, b, c, d]) => {
+            return minOfTwo([a, minOfThree([b, c, d])])
+        }
+        // 任意长度数组求最小值 都可以通过minOfTwo实现
+        console.log(minOfFour([1, 2, 3, 4]));
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>资料来源 饥人谷</pre>
+    <script>
+        // 任意长度数组的最小值
+        // 找出最小值
+        // 递归写法
+        let min = (numbers) => {
+            if (numbers.length > 2) {
+                return min(
+                    [numbers[0], min(numbers.slice(1))]
+                )
+            } else {
+                return Math.min.apply(null, numbers)
+            }
+        }
+
+        console.log(min([1, 2, 3, 4]));
+
+        // 递归 特点
+        // 函数不停调用自己 每次调用的参数略有不同
+        // 当满足某个条件时 则实现一个简单调用
+        // 最终算出结果
+
+        // 升级 
+        // 将正整数从小到大排列
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
