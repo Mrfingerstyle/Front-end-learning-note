@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>资料来源 饥人谷</pre>
+    <script>
+        /*
+        总结
+            所有循环都能改成循环
+            循环的细节
+                细节
+                动手列出表格找规律
+                边界条件
+                长度为 0 1 的数组
+            debug
+                看控制台
+                打log 注意加标记
+        */
+        // 快速排序
+        // 递归思路
+        // 以xxx为基准 小的去前面 大的去后面
+        let quick = (arr) => {
+            if (arr.length <= 1) {
+                return arr
+            }
+            let pivotIndex = Math.floor(arr.length / 2)
+            let pivot = arr.splice(pivotIndex, 1)[0]
+            let left = []
+            let right = []
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] < pivot) {
+                    left.push(arr[i])
+                } else {
+                    right.push(arr[i])
+                }
+            }
+            return quick(left).concat([pivot], quick(right))
+        }
+
+        let arr = [12, 3, 7, 21, 5, 9, 4, 6]
+        console.log(quick(arr));
+        // pivot === 21
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

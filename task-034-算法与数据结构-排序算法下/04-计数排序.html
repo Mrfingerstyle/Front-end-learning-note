@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>资料来源 饥人谷</pre>
+    <script>
+        /*
+        总结
+        目前学习
+        选择排序
+            每次选择最小的放在前面
+        快速排序
+            以某个数为基准 小的在前 大的在后
+        归并排序
+            每次把数组分两部分 默认排好序 没有排好就排序 分隔到直到一个 然后合并
+        计数排序
+            思路 用一个哈希表记录
+            发现数字N 记做 N:1 后续发现再加 1
+            最后把哈希表的key打出来
+        */
+        let countSort = (arr) => {
+            let hashTable = {}, max = 0, result = []
+            // 遍历数组
+            for (let index = 0; index < arr.length; index++) {
+                if (!(arr[index] in hashTable)) {
+                    hashTable[arr[index]] = 1
+                } else {
+                    hashTable[arr[index]] += 1
+                }
+                if (arr[index] > max) max = arr[index]
+            }
+            // for (let i = 0; i <= max; i++) {
+            //     if (i in hashTable) {
+            //         result.push(i)
+            //     }
+            // }
+            // 多个重复值的情况
+            // 遍历哈希表
+            for (let i = 0; i <= max; i++) {
+                if (i in hashTable) {
+                    for (let j = 0; j < hashTable[i]; j++) {
+                        result.push(i)
+                    }
+                }
+            }
+            console.log(result);
+            return result
+        }
+
+        countSort([1, 4, 2, 2, 4])
+
+        // 计数排序特点
+        // 使用了额外的哈希表
+        // 遍历一次数组
+        // 这叫做空间换时间
+
+        // 时间复杂度对比
+        // 选择 O(n ^ 2)
+        // 快速 O(nlogn)
+        // 归并 O(nlogn)
+        // 计数 O(n + max)
+
+
+
+
+    </script>
+</body>
+
+</html>

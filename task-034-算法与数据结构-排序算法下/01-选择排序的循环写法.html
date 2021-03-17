@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>资料来源 饥人谷</pre>
+    <script>
+        // 获取最小值
+        /*
+        let min = (numbers) => {
+            if (numbers.length > 2) {
+                return min(
+                    [numbers[0], min(numbers.slice(1))]
+                )
+            } else {
+                return Math.min.apply(null, numbers)
+            }
+        }
+        */
+
+        // 获取最小值下标
+        /*
+        let minIndex = (numbers) => {
+            return numbers.indexOf(min(numbers))
+        }
+        let sort = (numbers) => {
+            if (numbers.length > 2) {
+                let index = minIndex(numbers)
+                let min = numbers[index]
+                numbers.splice(index, 1)
+                return [min].concat(
+                    sort(numbers)
+                )
+            } else {
+                return numbers[0] < numbers[1] ? numbers : numbers.reverse()
+            }
+        }
+        */
+        // 一句话总结 每次把最小的数放前面 然后对后面的数做同样的事
+
+        // 算法难度 
+        // 动手最重要 自己写 调试
+        // 细心 耐心
+
+        // minIndex 
+        let minIndex = (numbers) => {
+            let index = 0
+            for (let i = 1; i < numbers.length; i++) {
+                if (numbers[i] < numbers[index]) {
+                    index = i
+                }
+            }
+            return index
+        }
+        // console.log(minIndex([1, 2, 3]));
+
+        // 所有递归都可以改写成循环
+
+        let swap = (array, i, j) => {
+            let temp = array[i]
+            array[i] = array[j]
+            array[j] = temp
+        }
+        // 不能使用简单类型 因为传参的时候会复制值 
+        // 不起作用
+
+        let sort = (numbers) => {
+            if (numbers.length == 1 || numbers.length == 0) {
+                return numbers
+            }
+
+            for (let i = 0; i < numbers.length - 1; i++) {
+                // 此处的切割数组 因为前端的数字已经是最小 
+                // + i 因为 找到的索引 后续需要交换位置 后面随着数组被切割 索引比实际的小 需要加上被切割掉的长度
+                let index = minIndex(numbers.slice(i)) + i
+                // 相同位置不交换位置
+                if (index !== i) {
+                    // console.log(`swap ${index} <=> ${i}`);
+                    swap(numbers, index, i)
+                    console.log(numbers);
+                }
+            }
+            return numbers
+        }
+
+        let arr = [20, 5, 30, 10]
+        // sort(arr)
+
+        let arr_2 = []
+
+        console.log(sort(arr_2));
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

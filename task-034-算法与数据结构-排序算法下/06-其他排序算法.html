@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>资料来源 饥人谷</pre>
+    <script>
+        // 冒泡排序 n ^ 2
+        let bubbleSort = (array) => {
+            for (let i = 0; i < array.length - 1; i++) {
+                for (let j = 0; j < array.length - 1 - i; j++) {
+                    if (array[j] > array[j + 1]) {
+                        let temp = array[j]
+                        array[j] = array[j + 1]
+                        array[j + 1] = temp
+                    }
+                }
+            }
+            return array
+        }
+        console.log(bubbleSort([4, 1, 2, 3]));
+
+        // 插入排序 n ^ 2
+        let insertSort = (nums) => {
+            for (let i = 1; i < nums.length; i++) {
+                let j = i - 1
+                let tmp = nums[i]
+                while (j >= 0 && nums[j] > tmp) {
+                    nums[j + 1] = nums[j]
+                    j--
+                }
+                nums[j + 1] = tmp
+            }
+            return nums
+        }
+        console.log(insertSort([4, 1, 2, 3]));
+
+        // 希尔排序
+        function shellSort(arr) {
+            var len = arr.length,
+                temp,
+                gap = 1;
+            //动态定义间隔序列
+            while (gap < len / 3) {
+                gap = gap * 3 + 1;
+            }
+            for (gap; gap > 0; gap = Math.floor(gap / 3)) {
+                for (var i = gap; i < len; i++) {
+                    temp = arr[i];
+                    for (var j = i - gap; j >= 0 && arr[j] > temp; j -= gap) {
+                        arr[j + gap] = arr[j];
+                    }
+                    arr[j + gap] = temp;
+                }
+            }
+            return arr;
+        }
+
+
+        console.log(shellSort([4, 1, 2, 3]));
+
+        // 基数排序 适合多位数排序 根据位数大小排序
+        /*
+        基数排序基本思想
+        1.将所有待比较数值统一为同样的数位长度，数位较短的数前面补零。然后，从最低位开始，依次进行一次排序。
+        这样从最低位排序一直到最高位排序完成以后, 数列就变成一个有序序列。
+        2.这样说明，比较难理解，下面我们看一个图文解释，理解基数排序的步骤
+        */
+
+        //基数排序方法
+        function radixSort(arr) {
+            //定义一个二维数组，表示10个桶，每个桶就是一个一维数组
+            //说明
+            //1，二维数组包含10个一维数组，
+            //2.为了防止在放入数的时候，数据溢出，则每个一维数组（桶）
+            //大小定为arr.length
+            //3.很明确，基数排序是使用空间换时间的经典算法
+            let bucket = new Array(10);
+            for (let i = 0; i < bucket.length; i++) {
+                bucket[i] = new Array(arr.length);
+            }
+
+            //为了记录每个桶中，实际存了多少个数据，我们定义一个
+            //一维数组来记录每个桶的每次放入的数据个数
+            //可以这里理解
+            //比如：bucketElementCounts[0],记录的就是bucket[0]桶的放入数据个数
+            let buckeElementCounts = new Array(10).fill(0);
+
+            //1.得到数组中最大的位数
+            let max = arr[0];
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] > max) {
+                    max = arr[i]
+                }
+            }
+            //得到最大是几位数
+            let maxLength = (max + '').length;
+
+
+            for (let i = 0, n = 1; i < maxLength; i++, n = n * 10) {
+                //每一轮，对每个元素的各个位数进行排序处理,
+                //第一次是个位，第二次是十位，第三次是百位
+                for (let j = 0; j < arr.length; j++) {
+                    //取出每个元素的各位的值
+                    let digitOfElement = Math.floor(arr[j] / n) % 10;
+                    bucket[digitOfElement][buckeElementCounts[digitOfElement]]
+                        = arr[j];
+                    buckeElementCounts[digitOfElement]++;
+                }
+                //按照这个桶的顺序（以为数组的下标依次取出数据，放入原来数组）
+                let index = 0;
+                //遍历每一桶，并将桶中的数据，放入原数组
+                for (let k = 0; k < buckeElementCounts.length; k++) {
+                    //如果桶中有数据，我们才放入原数组
+                    if (buckeElementCounts[k] !== 0) {
+                        //循环该桶即第k个桶，即第k个一维数组，放入
+                        for (let l = 0; l < buckeElementCounts[k]; l++) {
+                            //取出元素放入arr
+                            arr[index] = bucket[k][l];
+                            //arr下标后移
+                            index++;
+                        }
+                        //每轮处理后，下标要清0
+                        buckeElementCounts[k] = 0;
+                    }
+                }
+            }
+        }
+
+        let arr = [53, 3, 542, 748, 14, 214];
+        console.log('原数组：', arr)
+        radixSort(arr);
+        console.log('基数排序后：', arr)
+
+
+
+    </script>
+</body>
+
+</html>
