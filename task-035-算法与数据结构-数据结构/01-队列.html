@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            margin-top: 20px;
+        }
+
+        hr {
+            margin-top: 10px;
+        }
+
+        #screen {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            text-align: center;
+            line-height: 200px;
+            font-size: 10px;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <pre>资料来源 饥人谷</pre>
+    <hr>
+    <div id="screen"></div>
+    <div class="actions">
+        <button id="createNumber">取号</button>
+        <button id="callNumber">叫号</button>
+    </div>
+    <div>最新号码 <span id="newNumber"></span></div>
+    <div>当前队列 <span id="queue"></span></div>
+
+    <script>
+        /*
+        队列 Queue 
+            先进先出
+            案例 餐厅叫号
+            入队 出队
+        */
+        const divScreen = document.querySelector('#screen')
+        const btnCreateNumber = document.querySelector('#createNumber')
+        const btnCallNumber = document.querySelector('#callNumber')
+        const spanNewNumber = document.querySelector('#newNumber')
+        const spanQueue = document.querySelector('#queue')
+
+        let n = 0
+        let queue = []
+        btnCreateNumber.onclick = () => {
+            n += 1
+            // queue.push(n)
+            queue.push.call(queue, n)
+            spanNewNumber.innerHTML = n
+            spanQueue.innerHTML = JSON.stringify(queue)
+        }
+
+        btnCallNumber.onclick = () => {
+            // const m = queue.shift()
+            const m = queue.shift.call(queue)
+
+            if (m) {
+                divScreen.innerHTML = `${m} 号就餐`
+            } else {
+                divScreen.innerHTML = `无就餐号码`
+            }
+            spanQueue.innerHTML = JSON.stringify(queue)
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

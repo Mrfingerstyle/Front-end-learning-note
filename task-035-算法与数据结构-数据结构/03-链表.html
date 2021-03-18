@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>资料来源 饥人谷</pre>
+    <script>
+        // linked list 
+        // 链表 一个对象链接另一个对象w
+        // arr - Array 原型 - Object 原型 - null 
+        // 新建链表
+        const createList = value => {
+            return createNode(value)
+        };
+        // 在链表中插入节点
+        const appendList = (list, value) => {
+            const node = createNode(value)
+            let x = list
+            // 若 x.next = null x是最后一个节点
+            while (x.next) {
+                x = x.next
+            }
+            x.next = node
+            return node
+        };
+        // 新建节点
+        const createNode = value => {
+            return {
+                data: value,
+                next: null
+            };
+        };
+
+        const removeFromList = (list, node) => {
+
+            let x = list
+            let p = node
+            while (x !== node && x !== null) {
+                p = x
+                x = x.next
+            }
+            // x === null 不需要删除 直接return false 如果node不在list中 x可能为null
+            if (x === null) {
+                return false
+            }
+            // 需要删除的是第一个节点
+            else if (x === p) {
+                p = x.next
+                return p
+            }
+            // 
+            else {
+                p.next = x.next
+                return list
+            }
+        };
+
+
+        const deleteNode = (list, val) => {
+            if (inList(val)) {
+                if (!list) return
+                if (list.data === val) {
+                    return list.next
+                }
+                if (list.next.data === val) {
+                    list.next = list.next.next
+                } else {
+                    deleteNode(list.next, val)
+                }
+                // 返回删除后的链表
+                return list
+            } else {
+                // 若不存在要删除的元素 返回原链表
+                return list
+            }
+        }
+
+
+        const travelList = (list, fn) => {
+            if (!list) return
+            let x = list
+            while (x !== null) {
+                fn(x)
+                x = x.next
+            }
+        };
+
+        const inList = (data) => {
+            if (!list) return false
+            let x = list
+            while (x !== null) {
+                if (x.data === data) {
+                    return true
+                }
+                x = x.next
+            }
+        }
+
+        const list = createList(10)
+        const node2 = appendList(list, 20)
+        const node3 = appendList(list, 30)
+        travelList(list, (node) => {
+            console.log(node.data);
+        })
+        console.log(inList(10));
+
+        console.log('-----');
+
+        let newList = deleteNode(list, 40)
+
+        travelList(newList, (node) => {
+            console.log(node.data);
+        })
+
+        // 链表的变形
+        // 双向链表 每个节点都有一个previous指向上一个节点
+        // 循环链表
+        // 最后一个节点的next指向头节点
+
+
+
+    </script>
+</body>
+
+</html>
