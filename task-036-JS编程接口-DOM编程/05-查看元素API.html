@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <span>span tag</span>
+    <div>
+        <pre>资料来源 饥人谷</pre>
+    </div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+    <script>
+        let pre = document.querySelector('div')
+        // 改父节点
+        // newParent.appendChild(div)
+        // 直接在新的父节点下插入 子节点会从原来的地方消失
+
+        // 查爸爸
+        // node.parentNode or node.parentElement
+        console.log(pre.parentNode);
+        console.log(pre.parentElement);
+        // 查爷爷
+        // node.parentNode.parentNode
+        console.log(pre.parentNode.parentNode);
+        // 查子代
+        // node.childNodes or node.children
+        console.log(pre.childNodes); // 包括空格 标签
+        console.log(pre.children); // 只统计子元素
+        // length随着元素变化而变化
+        // querySelectorAll不会实时更新
+
+        // 查兄弟姐妹
+        // node.parentNode.childNodes
+        console.log(pre.parentNode.childNodes);
+        // node.parentNode.children
+        console.log('---');
+        console.log(pre.parentNode.children);
+        console.log('---');
+
+        // 查老大
+        // node.firstChild
+        console.log(pre.firstChild);
+        // 查老小
+        // node.lastChild
+        console.log(pre.lastChild);
+
+        // 查上一个哥哥 姐姐
+        // node.previousSibling
+        console.log(pre.previousSibling);
+        // 不过有回车 可能得到文本节点
+        // 不想要文本节点 可以使用
+        console.log(pre.previousElementSibling);
+
+
+        // 查下一个弟弟 妹妹
+        // node.nextSibling
+        console.log(pre.nextSibling);
+        // 不过有回车 可能得到文本节点
+        console.log(pre.nextElementSibling);
+
+        // 遍历一个div里面的所有元素
+        let ul = document.querySelector('ul')
+        console.log(ul.children);
+
+        const travel = (node, func) => {
+            func(node)
+            if (node.children) {
+                for (let i = 0; i < node.children.length; i++) {
+                    travel(node.children[i], func)
+                }
+            }
+        };
+        travel(document.body, (node) => console.log(node))
+
+    </script>
+</body>
+
+</html>

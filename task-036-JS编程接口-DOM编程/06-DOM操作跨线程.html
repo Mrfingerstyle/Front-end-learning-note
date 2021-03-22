@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>资料来源 饥人谷</pre>
+    <div id="test" class="cls">test</div>
+    <script>
+        console.log(window.test);
+        console.log(document.querySelectorAll('#test')[0]);
+
+        // DOM 操作是跨线程的
+        // 浏览器分为渲染引擎和JS引擎
+
+        // 跨线程操作
+        // 各线程各司其职
+        // JS引擎不能操作页面 只能操作JS
+        // 渲染引擎不能操作JS 只能操作页面
+        // document.body.appendChild(div)
+        // JS如何改变页面
+
+        // 跨线程通信
+        // 当浏览器发现JS在body里面加了div1对象
+        // 浏览器就会通知渲染引擎在页面里新增一个div1对象
+        // 新增的div元素所有属性都照抄div1对象
+
+        // 插入新标签的完整过程
+        // div1 放入页面之前
+        // 对div1的操作都属于JS线程内的操作
+
+        // div1 放入页面之时
+        // 浏览器会发现JS的意图
+        // 通知渲染引擎在页面中渲染div1对应的元素
+
+        // div1 放入页面之后
+        // 对div1的操作又肯呢个触发重新渲染
+        // div1.id = 'new id' 有可能重新渲染 也可能不会
+        // div1.title = 'new' 有可能重新渲染 也可能不会
+        // 如果对div1多次操作 浏览器可能合并为一次操作 也可能不会
+            // 在渲染时 有动画 可能合并渲染 不会出现动画
+            // 读取下宽度 可以正常显示动画 test.clientWidth 
+
+
+        // 属性同步
+            // 标准属性 JS代码自动同步页面
+            // data-x s属性 自动同步
+            // 非标准属性 不同步
+
+            // 属性是标准属性 浏览器会同步渲染页面的属性
+            // 自定义属性不变 不会同步到页面中
+
+        // property  attribute 
+        // property 属性
+        // JS 线程中 div1 的所有属性
+        // attribute
+        // 渲染引擎中div1 对应标签的属性
+
+        // 区别
+        // 大部分时候 同名的property 和 attribute值相等
+        // 但如果不是标准属性 他们只会在一开始时相等
+        // 注意 attribute只支持字符串
+        // property支持字符串 布尔等类型
+
+        // 一个事实  DOM难用
+
+    </script>
+</body>
+
+</html>

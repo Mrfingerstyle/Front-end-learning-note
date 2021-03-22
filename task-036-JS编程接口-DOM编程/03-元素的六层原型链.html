@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>资料来源 饥人谷</pre>
+    <script>
+        // console.dir(document.getElementsByTagName('div')[9])
+        // HTMLDivElement div共有属性
+        // HTMLElement html标签共有属性
+        // Element html标签共有属性
+        // Node 所有节点共有属性
+        // EventTarget addEventListener
+        // Object Object.prototype
+
+        /*
+            div原型链
+            document.getElementsByTagName('div')[9].__proto__ -> HTMLDivElement.prototype.__proto__ ->
+            HTMLElement.prototype.__proto__ -> Element.prototype.__proto__ -> Node.prototype.__proto__ ->
+            EventTarget.prototype.__proto__ -> Object.prototype
+            在每一层 各个构造函数都会往div上加方法和属性 一层一层加入
+        */
+
+        // 注意 节点 和 元素
+        // 节点 Node包括很多种 div.nodeType得到
+        // 1 标签
+        // 3 文本
+        // 8 注释
+        // 9 文档
+
+        let p = document.querySelector('pre')
+        console.log(p);
+        console.log(p.nodeType);
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
