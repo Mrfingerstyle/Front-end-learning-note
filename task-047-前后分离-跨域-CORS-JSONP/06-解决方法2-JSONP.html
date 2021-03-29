@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>资料来源 饥人谷</pre>
+    <hr>
+    <script>
+        /*
+        在IE环境中 跨域使用JSONP
+        IE不支持CORS
+
+        定义
+        JSONP 和 JSON 没有关系
+
+        我们现在面临的问题
+        没有CORS 怎么跨域
+        之前讲过可以随意引用JS
+        虽然不能访问 http://qq.com:8888/friends.json
+        但是能引用   http://qq.com:8888/friends.js
+        让JS包含数据
+        JS不只能拿到json数据 也能拿到其他数据 如 xml 
+
+        步骤
+        frank.com 访问 qq.com 
+        qq.com 将数据写到friends.js 
+        frank.com 用script标签引用/friends.js
+        /friends.js执行后 得到响应的结果 如 json 或 函数调用
+        frank.com 实现定义好 window.xxx 函数
+        /friends.js 执行 window.xxx({friends:[]})
+        然后frank.com 通过window.xxx 获取到了数据
+        window.xxx 就是一个回调啊
+
+        
+
+        
+
+
+        */
+    </script>
+</body>
+
+</html>

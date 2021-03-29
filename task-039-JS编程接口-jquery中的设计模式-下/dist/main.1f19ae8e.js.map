@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.js"],"names":["$","appendTo","document","body"],"mappings":"AAAAA,CAAC,CAAC,cAAD,CAAD,CAAkBC,QAAlB,CAA2BC,QAAQ,CAACC,IAApC","file":"main.1f19ae8e.js","sourceRoot":"../src","sourcesContent":["$('<div>1</div>').appendTo(document.body)"]}

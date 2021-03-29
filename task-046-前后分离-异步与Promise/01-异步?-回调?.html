@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>资料来源 饥人谷</pre>
+    <hr>
+    <script>
+        /*
+        同步
+            如果能直接拿到结果 那就是同步
+            例如 在医院挂号 拿到号才会离开窗口
+            总之 不拿到结果 不会离开
+
+        异步
+            如果不能直接拿到结果 那就是 异步
+            比如你在餐厅门口等位 拿到号可以去逛街
+            什么时候去吃饭？？？
+            你可以每10分钟问一次 轮询
+            也可以扫码用微信接收通知 回调
+
+        异步举例
+            以AJAX为例
+            request.send() 之后 并不能直接得到response
+            必须等到readyState 变为 4 之后 浏览器回头调用 request.onreadystatechange 函数 
+            我们才能得到request.response
+            
+            这和餐厅发送微信提醒的过程是类似的
+
+        回调 callback 
+            你写给自己用的函数 不是回调
+            你写给别人用的函数 是回调
+            request.onreadystatechange 是写给浏览器调用的 意思是浏览器回头调一下这个函数 
+        */
+
+        // 回调举例
+        function f1() { }
+        function f2(fn) {
+            fn()
+        }
+        f2(f1)
+        // f1 是 写给f2调用的函数 f1是回调
+
+        /*
+        异步与回调的关系
+        关联
+            异步任务需要在得到结果时通知JS来拿结果
+            怎么通知？？？？
+            可以让JS留一个函数地址 给浏览器
+            异步任务完成时浏览器调用该函数地址即可
+            同时把结果作为参数传递给该函数
+            这个函数时我写给浏览器调用的 所以是回调函数
+
+        区别
+            异步任务需要回调函数来通知结果
+            但是回调函数不一定只用在异步任务里
+            回调可以用到同步任务中
+
+            这是同步回调
+            array.forEach(n => {
+                console.log(n);
+            });
+
+        */
+
+    </script>
+</body>
+
+</html>

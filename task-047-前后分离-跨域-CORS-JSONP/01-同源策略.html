@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>资料来源 饥人谷</pre>
+    <hr>
+    <script>
+        // 跨域 必问
+        // 跨域关键知识
+        // 同源策略
+            // 浏览器故意设计的一个功能限制
+        /*
+        同源定义
+            源
+            window.origin
+            源 = 协议 + 域名 + 端口号
+        如果两个URL的
+            协议
+            域名
+            端口号
+            完全一致 这两个URL就是同源的
+        举例
+            https://qq.com https://www.baidu.com 不同源
+            https://baidu.com https://www.baidu.com 不同源
+            完全一致才同源
+        同源策略定义
+            浏览器规定 如果JS运行在源A中 那么只能获取源A的数据 不能获取源B的数据
+            即 不允许跨域
+            这是浏览器的功能 浏览器故意设计的
+        浏览器这样做的目的 保护用户隐私
+
+        假设没有同源策略
+            以qq空间为例
+            源 https://user.qzone.qq.com
+            假设 AJAX请求/friends.json 可获取用户好友列表
+
+        另外一个人
+        分享 https://qzone-qq.com给你
+        实际上这是一个钓鱼网站
+        点击网页后 这个网页也请求你的好友列表 https://user.qzone.qq.com
+        那么 好友列表被偷走了
+
+        问题根源 无法区分发送者
+        QQ空间的JS和黑客网页的JS 发的请求没有区别 (refer有区别)
+        如果后台开发者没有检查refer 那就完全没区别
+
+        所以浏览器应当主动预防这种投数据的行为
+        总之 浏览器为了用户隐私 设置了严格的同源策略
+        安全原则 安全链条的强度取决于最弱的一环
+
+        同源策略 不同源的页面之间 不准互相访问数据
+        
+        */
+        // CORS
+            // 实现浏览器限制的一个方法
+        // JSONP
+            // IE时代的妥协
+
+        // 
+
+    </script>
+</body>
+
+</html>

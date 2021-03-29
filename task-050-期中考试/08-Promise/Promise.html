@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Promise 的用途
+            使用Promise实现异步调用
+
+        如何创建一个 new Promise
+            return new Promise((resolve, reject) => {})
+
+        如何使用 Promise.prototype.then
+            const ajax = (method, url, options) => {
+                return new Promise((resolve, reject) => {
+                    const { success, fail } = options
+                    const request = new XMLHttpRequest()
+                    request.open(method, url)
+                    request.onreadystatechange = () => {
+                        if (request.readyState === 4) {
+                            if (request.status < 400) {
+                                resolve.call(null, request.response);
+                            } else if (request.status >= 400) {
+                                reject.call(null, request, request.status)
+                            }
+                        }
+                    }
+                    request.send()
+                })
+            }
+            ajax('get', '/xxx').then((response) => {}, (request) => {console.log(request)})
+
+        如何使用 Promise.all
+        Promise.all()方法接收一个promise的iterable类型的输入
+        并且只返回一个Promise实例， 那个输入的所有promise的resolve回调的结果是一个数组
+        它的reject回调执行是，只要任何一个输入的promise的reject回调执行或者输入不合法的promise就会立即抛出错误，
+        并且reject的是第一个抛出的错误信息
+
+        const promise1 = Promise.resolve(3);
+        const promise2 = 42;
+        const promise3 = new Promise((resolve, reject) => {
+            setTimeout(resolve, 100, 'foo');
+        });
+
+        Promise.all([promise1, promise2, promise3]).then((values) => {
+            console.log(values);
+        });
+
+
+        如何使用 Promise.race
+        Promise.race() 方法返回一个 promise
+        一旦迭代器中的某个promise解决或拒绝，返回的 promise就会解决或拒绝
+
+        const promise1 = new Promise((resolve, reject) => {
+            setTimeout(resolve, 500, 'one');
+        });
+
+        const promise2 = new Promise((resolve, reject) => {
+            setTimeout(resolve, 100, 'two');
+        });
+
+        Promise.race([promise1, promise2]).then((value) => {
+            console.log(value);
+            // Both resolve, but promise2 is faster
+        });
+
+        */
+    </script>
+</body>
+
+</html>

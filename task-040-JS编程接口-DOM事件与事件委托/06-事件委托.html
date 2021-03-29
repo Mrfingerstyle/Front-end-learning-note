@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>资料来源 饥人谷</pre>
+    <hr>
+    <div id="div1"><span>span</span><button data-id="1">click 1</button><button>click 2</button><button>click
+            3</button><button>click
+            4</button><button>click 5</button><button>click 6</button><button>click 7</button><button>click
+            8</button><button>click 9</button><button>click 10</button><button>click 11</button><button>click
+            12</button><button>click 13</button><button>click 14</button><button>click 15</button><button>click
+            16</button><button>click 17</button><button>click 18</button><button>click 19</button><button>click
+            20</button><button>click 21</button><button>click 22</button><button>click 23</button><button>click
+            24</button><button>click 25</button><button>click 26</button><button>click 27</button><button>click
+            28</button><button>click 29</button><button>click 30</button><button>click 31</button><button>click
+            32</button><button>click 33</button><button>click 34</button><button>click 35</button><button>click
+            36</button><button>click 37</button><button>click 38</button><button>click 39</button><button>click
+            40</button><button>click 41</button><button>click 42</button><button>click 43</button><button>click
+            44</button><button>click 45</button><button>click 46</button><button>click 47</button><button>click
+            48</button><button>click 49</button><button>click 50</button><button>click 51</button><button>click
+            52</button><button>click 53</button><button>click 54</button><button>click 55</button><button>click
+            56</button><button>click 57</button><button>click 58</button><button>click 59</button><button>click
+            60</button><button>click 61</button><button>click 62</button><button>click 63</button><button>click
+            64</button><button>click 65</button><button>click 66</button><button>click 67</button><button>click
+            68</button><button>click 69</button><button>click 70</button><button>click 71</button><button>click
+            72</button><button>click 73</button><button>click 74</button><button>click 75</button><button>click
+            76</button><button>click 77</button><button>click 78</button><button>click 79</button><button>click
+            80</button><button>click 81</button><button>click 82</button><button>click 83</button><button>click
+            84</button><button>click 85</button><button>click 86</button><button>click 87</button><button>click
+            88</button><button>click 89</button><button>click 90</button><button>click 91</button><button>click
+            92</button><button>click 93</button><button>click 94</button><button>click 95</button><button>click
+            96</button><button>click 97</button><button>click 98</button><button>click 99</button><button>click
+            100</button></div>
+    <script>
+        // 事件委托 
+        // 场景1 给100个按钮添加点击事件
+        document.querySelector('#div1').addEventListener('click', (e) => {
+            const t = e.target
+            if (t.tagName.toLowerCase() === 'button') {
+                console.log('button 被点击');
+                console.log('button内容' + t.textContent);
+                console.log('data-id' + t.dataset.id);
+            }
+        })
+
+    </script>
+</body>
+
+</html>

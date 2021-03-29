@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>资料来源 饥人谷</pre>
+    <hr>
+    <script>
+        /*
+        静态服务器 动态服务器
+        判断依据
+            是否请求了数据库
+            没有请求数据库 就是静态
+            请求了数据库 就是动态
+
+        数据库不属于前端范围 但是程序员应该懂一点
+        目前 使用json文件当作数据库
+
+        /db/users.json
+        [
+            { "id": 1, "name": "frank", "password": "xxx" },
+            { "id": 2, "name": "jack", "password": "zzz" }
+        ]
+
+        读取users数据
+        // 读取数据库
+        const usersString = fs.readFileSync('./db/users.json').toString()
+        // 反序列化 得到数组
+        const userArray = JSON.parse(usersString)
+
+        存储users数据
+        // 序列化 得到字符串
+        const string = JSON.stringify(userArray)
+        // 写入到文件
+        fs.writeFileSync('./db/users.json', string)
+        
+        */
+    </script>
+</body>
+
+</html>

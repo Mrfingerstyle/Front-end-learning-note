@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>资料来源 饥人谷</pre>
+    <hr>
+    <script>
+        /*
+        学习框架的前奏
+        
+        Webpack
+        
+        前置知识
+            ES6 let const ()=> new class Promise
+                继承 this 原型
+            CSS语法和布局
+            MVC概念 Model View Controller EventBus
+            工具的使用
+                VSCode WebStrom
+                npm yarn http-serve parcel git 
+        
+        安装
+            yarn global add webpack
+
+        用到的工具
+            webpack@4 
+                如果webpack升级到了5 本节课的思路依然有效
+            webpack-dev-server
+                用于本地预览
+        
+        webpack 主要做什么
+            转译代码 ES6 转为 ES5 SCSS转为CSS
+            构建build 
+            代码压缩
+            代码分析
+
+            以上是前端工程化的概念
+
+        今后不会有新知识了
+        Vue React都不是
+        只是对基础知识的杂糅
+        webpack也不是新知识
+
+        */
+        /*
+        转译JS
+            
+            在项目文件夹下 终端  npm init -y 生产package.json
+            npx webpack 
+                当webpack安装在本地时 使用webpack时不用再按照路径找到运行 
+                会自动运行
+                但是npx不够稳定
+                手动
+
+            初始化 webpack.config.js
+                发布 设置mode 如果是production模式 代码最小化 一行显示 
+                开发 设置mode 如果是development模式 代码详细展示 细节
+                var path = require('path');
+                module.exports = {
+                    mode: 'development',
+                    entry: './foo.js',
+                    output: {
+                        path: path.resolve(__dirname, 'dist'),
+                        filename: 'foo.bundle.js',
+                    },
+                };
+
+            webpack 配置 entry 和 output
+                
+            理解文件名中的hash的用途
+                便于添加缓存
+
+            HTTP 响应头的Cache-Control 
+            HTTP缓存的作用
+                避免所有文件都从服务器端下载 有些文件使用了磁盘缓存
+                设置了缓存头
+            首页不设置缓存 否则不能告知新css js
+            
+            package.json
+                "script": {
+                    "build": "rm -rf dist; webpack",
+                }
+            
+            yarn build 可以每次创建最新的dist文件
+
+            webpack生成html 
+                yarn add html-webpack-plugin@3.2.0 --dev
+                yarn build 
+                在dist中出现index.html
+                自动更新引用
+                dist中所有都是生成的
+
+            webpack引入css
+                yarn add css-loader@3.2.0 --dev
+                    将css读到JS中
+                yarn add style-loader@1.0.1 --dev
+                    将读到的字符串放到head中
+                
+            webpack dev server 可以代替http-server
+                webpack-dev-server 直接将css文件的变化显示在浏览器上 保存在内存中 
+                不会在dist文件夹中生成新的index.html
+                如果使用http-server 需要自己手动刷新 使用上面的工具自动刷新
+
+            使用插件提取CSS文件
+                mini-css-extract-plugin
+
+            如何做到在开发的时候用第一种模式 生产环境中用第二种模式
+            
+            使用两个 webpack config 文件
+            插件 重要的是怎么知道用什么
+            webpack没有定法 注意思路
+
+            生产环境 yarn build
+            开发环境 yarn start 
+
+            使用不同的config 
+
+
+            webpack 下半部分
+            loader vs plugin 
+            loader 将1个文件转为1个文件 1 vs 1
+            plugin 将多个文件变为1个文件 n vs 1 
+            1 - 1 
+            0 - 1
+            例如html文件 如果没有设置 也会自动生成1个
+
+            面试提问区别
+                翻译 问题
+                    loader 加载器 
+                    plugin 插件 
+                具体区别 解释
+                    loader 加载文件 
+                        babel-loader 内置
+                        style-loader
+                    plugin 扩展webpack功能
+                        html 插件 
+                        css 插件 多个文件合并为一个插件
+            
+            引入 SCSS 
+                另外 node-sass 过时了
+                使用dart-sass 
+            
+            node-sass 过时了
+
+            引入LESS Stylus 
+
+            引入 less
+
+            引入 stylus 
+
+            引入图片 file-loader
+                直接导入图片的相对地址无效 因为是在dist目录下执行的
+                这个loader会自动加hash命名
+                将文件变为文件路径
+
+            webpack import() 懒加载
+                使用懒加载
+            
+            部署到GitHub
+                1 本地打包
+                2 上传到github 
+                在 GitHub pages 部分开启该项目的链接地址 访问dist文件中生成的文件
+                注意 链接地址要加路径
+
+                第二种方法使用分支
+                git branch gh-pages
+                git checkout gh-pages
+                删除除了dist node_modules .gitignore之外的文件
+                
+                    重置 git reset --hard HEAD
+                    用于找回删除掉的文件
+                将dist的文件移动到webpack-demo中 
+                    mv dist/* ./
+                删除dist文件夹
+                    rm -rf dist
+
+                提交到新开辟的分之
+                git push --set-upstream origin gh-pages
+
+                通过两个分之设置两个世界 一个用于存储代码 
+                一个用于预览
+                在设置预览 http://blog.liuyangtech.com/webpack-demo/index.html
+                
+                以上操作太麻烦 写一个脚本执行
+                deploy.sh 
+
+                yarn build &&
+                git checkout gh-pages &&
+                rm -rf *.html *.js *.css *.png &&
+                mv dist/* ./ &&
+                rm -rf dist;
+                git add . &&
+                git commit -m 'update' &&
+                git push
+
+                执行 sh ./deploy.sh
+
+                回到上一个分支
+                git checkout - 
+
+
+                目前 面试
+                弱化 CSS 
+                强化 JS Node
+        */ 
+        
+    </script>
+</body>
+
+</html>

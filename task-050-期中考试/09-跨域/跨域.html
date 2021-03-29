@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        ### 什么是同源
+            源 = 协议 + 域名 + 端口号
+            如果两个URL的协议、域名、端口号完全一致 
+            这两个URL就是同源的
+
+        ### 什么是跨域
+            浏览器规定 如果JS运行在源A中 那么只能获取源A的数据 不能获取源B的数据
+            即 不允许跨域 这是浏览器的功能 浏览器故意设计的
+            所以简单来说 跨域就是不同源的页面之间 互相访问数据
+            
+        ### JSONP跨域
+            IE时代的妥协
+            在跨域实现中，当前浏览器不支持CORS，必须使用另一种方式跨域
+            具体过程，请求JS文件，执行一个回调，回调里面能够得到数据
+            回调名字可以随机生成，可以是随机数
+            把这个名字以callback的形式传给后台，后台会把函数返回给我们并执行
+
+            优点 
+            兼容IE 
+            可以跨域 
+
+            缺点
+            由于使用script标签 读不到AJAX精确的状态 也不知道响应头是什么 
+            只知道成功或失败 
+            由于是script标签 只能发get请求
+            JSONP不支持post
+
+        ### COPS跨域
+            解除浏览器跨域限制的一个办法
+            如果需要其他源的数据 需要提前声明
+            具体语法
+            例如 frank.com 需要访问 qq.com 的json数据
+            可以在/xxx.json的后台设置
+            response.setHeader('Access-Control-Allow-Origin', 'http://frank.com:9990')
+            但是这种方式对于 IE6789 都不支持
+        */
+    </script>
+</body>
+</html>

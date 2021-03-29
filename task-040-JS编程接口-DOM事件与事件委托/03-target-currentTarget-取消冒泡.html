@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>资料来源 饥人谷</pre>
+    <div> 特例 </div>
+    <script>
+        // 小结
+        // 儿子被点击 也算点击父亲
+        // 捕获与冒泡
+        // 捕获说先调用父亲的监听函数
+        // 冒泡说先调用儿子的监听函数
+
+        // W3C事件模型
+        // 先捕获 再冒泡 
+        // 注意e对象被传给所有监听函数
+        // 事件结束后 e对象就存在了
+
+        // target currentTarget
+        // target 用户操作的元素
+        // currentTarget 程序员监听的元素
+        // this是currentTarget 不推荐使用
+        // 举例 div>span{文字} 用户点击文字
+        // e.target 是span 
+        // e.currentTarget 是div 
+
+        // 特例 只有一个div被监听 不考虑父子同时被监听
+        // fn分别在捕获阶段 和 冒泡阶段监听click事件 
+        // 监听的元素 就是用户点击的元素
+        // 谁先监听 谁先执行
+        let dv = document.querySelector('div')
+        dv.addEventListener('click', () => {
+            console.log(1);
+        })
+        dv.addEventListener('click', () => {
+            console.log(2);
+        }, true)
+
+        // 取消冒泡
+        // e.stopPropagation() 可中断冒泡 浏览器不再向上走
+
+        // 不可取消事件
+        // scroll event 
+        // 
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

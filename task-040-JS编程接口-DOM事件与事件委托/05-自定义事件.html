@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>资料来源 饥人谷</pre>
+    <hr>
+    <div id="div1"><button id="button1">click frank</button></div>
+    <script>
+        document.querySelector('#button1').addEventListener('click', (e) => {
+            const event = new CustomEvent('frank', {
+                detail: { name: 'frank', age: 18 },
+                bubbles: true,
+                cancelable: false
+
+            })
+            button1.dispatchEvent(event)
+        })
+
+        div1.addEventListener('frank', (e) => {
+            console.log('触发 frank');
+            console.log(e.detail);
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>资料来源 饥人谷</pre>
+    <script>
+        // 事件绑定API 
+        // IE5 attachEvent('onclick', fn) 冒泡
+        // 网景 addEventListener('click', fn) 捕获
+        // W3C addEventListener('click', fn， bool)
+
+        // 如果不传 或 为falsy 
+        // fn走冒泡 当浏览器在冒泡阶段发现dad有监听函数 就会调用fn 并提供事件信息
+
+        // 如果bool为true 
+        // 让fn走捕获 当浏览器在捕获阶段发现dad有监听函数 就会调用fn 并提供事件信息
+
+        // 捕获 冒泡 两个阶段都会走 只是在哪个阶段执行函数的问题
+
+        // e 会在点击事件结束后消失 
+        // 只存在点击的一瞬间 所以在需要使用e的时候需要把e记录下来
+
+    </script>
+</body>
+
+</html>

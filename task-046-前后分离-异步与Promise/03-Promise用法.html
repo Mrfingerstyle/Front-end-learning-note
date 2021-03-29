@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>资料来源 饥人谷</pre>
+    <hr>
+    <script>
+        /*
+        异步任务有两个结果 成功 或 失败 怎么办
+        两个结果
+        方法 1
+        回调接收两个参数
+        fs.readFile('./1.txt', (error, data) => {
+            if (error) {
+                console.log('失败')
+                return
+            }
+            console.log(data.toString()) // 成功
+
+        })
+        方法 2
+        搞两个回调
+        // 前面函数是成功函数 后面函数是失败函数
+        ajax('get', '/1.json', data=>{}, error=>{})
+        // 接收一个对象 对象有两个key 表示成功 失败
+        ajax('get', '/1.json', {
+            success: ()=>{}, fail: ()=>{}
+        })
+        */
+
+        // 这些方法的不足
+        // 不规范 有人用success error 有人用 done fail 都是人为规定的
+        // 容易出现回调地狱 代码变得看不懂
+        // 很难进行错误处理
+
+        // 怎么解决
+        // 规范回调的名字和顺序
+        // 拒绝回调顺序 让代码可读性更强
+        // 很方便的捕获错误
+
+        // 1976 Promise思想提出
+        // 前端结合Promise JS 制定了规范
+    </script>
+
+    <script>
+        // 封装AJAX为例 解释Promise
+
+        // 析构赋值
+
+        // const { success, error } = { success: () => { console.log('s'); }, error: () => { console.log('error'); } }
+        // console.log(success);
+        // console.log(error);
+
+        /*
+        let obj = {
+            // 这是 function的简写
+            success(x) {
+                console.log(x);
+            },
+            // 箭头函数
+            fail: (request, status) => {
+
+            }
+        }
+        obj.success(1)
+        */
+
+        /*
+        const ajax = (method, url, option) => {
+            const { success, fail } = option
+            const request = new XMLHttpRequest()
+            request.open(method, url)
+            request.onreadystatechange = () => {
+                if (request.readyState === 4) {
+                    if (request.status < 400) {
+                        success.call(null, request.response);
+                    } else if (request.status >= 400) {
+                        fail.call(null, request, request.status)
+                    }
+                }
+            }
+            request.send()
+        }
+
+        ajax('get', '/xxx', {
+            success(response) { console.log(response); }, fail: (request, status) => {
+                console.log(request);
+                console.log(status);
+            }
+        })
+        */
+        // 上面使用了两个回调 还使用了success error
+        // 改为Promise 写法
+
+        const ajax = (method, url, options) => {
+            return new Promise((resolve, reject) => {
+                const { success, fail } = options
+                const request = new XMLHttpRequest()
+                request.open(method, url)
+                request.onreadystatechange = () => {
+                    if (request.readyState === 4) {
+                        if (request.status < 400) {
+                            resolve.call(null, request.response);
+                        } else if (request.status >= 400) {
+                            reject.call(null, request, request.status)
+                        }
+                    }
+                }
+                request.send()
+            })
+        }
+        /*
+        ajax('get', '/xxx').then((response) => { }, (request) => { console.log(request) })
+        */
+        // 虽然也是回调 但是不需要记忆success fail
+        // then的第一个参数是success 
+        // then的第二个参数是fail
+
+        // ajax() 返回了一个包含.then()方法的对象
+        // 如何做到的？？？？？
+
+        /*
+        目前的缺点
+        post无法上传数据
+        不能设置请求头
+        怎么解决
+            继续写ajax
+                有兴趣写
+            使用jQuery.ajax 基本完美
+                支持更多形式的参数
+                支持Promise
+                不需要掌握  现在专业前端在用axios
+            使用axios
+                抄袭了jQuery的封装思路
+                优点
+                    JSON自动处理
+                    请求拦截器
+                    响应拦截器
+                    可以生成不同实例
+
+        封装
+            初级 学习API
+            中极 学习如何封装
+            高级 造轮子
+
+        */
+    </script>
+</body>
+
+</html>

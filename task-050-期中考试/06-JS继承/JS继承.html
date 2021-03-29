@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // https://www.zhihu.com/search?type=content&q=js%20class%20%E7%BB%A7%E6%89%BF
+        ```
+        1. 基于原型的继承
+            将父类的实例作为子类的原型
+            function Son(){}
+            Son.prototype = new Father()  // 重写Son的原型
+            Son.prototype.constructor = Son; //  把Son原型上的constructor重新指向Son
+            基于原型的继承是最简单的一种实现方式  
+            优点
+                父类的方法可以复用
+            缺点
+                父类的引用属性会被子类实例共享 
+                多个实例对引用属性的操作会被篡改
+                子类构建实例时不能向父类传递参数
+
+        2. 基于class的继承
+        class Person {
+            constructor(name) {
+                this.name = name
+            }
+            getName = function () {
+                console.log('Person:', this.name)
+            }
+        }
+
+        class student extends Person {
+            constructor(name, age) {
+                super(name)
+                this.age = age
+            }
+        }
+
+        const s = new student('frank', 20)
+        s.getName()
+
+        class继承的实现原理是将父类对象在子类中调用
+        比如super.call(this)实现将父类中的属性在子类中声明
+        优点是代码更简洁易懂，这种继承方式是基于原型链构建的
+        ```
+
+
+
+
+
+    </script>
+</body>
+
+</html>

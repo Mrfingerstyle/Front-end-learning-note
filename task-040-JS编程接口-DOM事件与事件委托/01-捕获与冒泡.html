@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>资料来源 饥人谷</pre>
+    <hr>
+    <div class="grand">
+        <div class="dad">
+            <div class="son">
+                son
+            </div>
+        </div>
+    </div>
+    <script>
+        let grand = document.querySelector('.grand')
+        let dad = document.querySelector('.dad')
+        let son = document.querySelector('.son')
+        grand.addEventListener('click', () => {
+            console.log('grand');
+        }, true)
+        dad.addEventListener('click', () => {
+            console.log('dad');
+        }, true)
+        son.addEventListener('click', () => {
+            console.log('son');
+        }, true)
+        // son dad grand
+        // 都点击了
+        // 调用顺序
+        // 答案 都行 不同浏览器实现不同
+        // 最后闹到W3C
+
+        // 2002 W3C 发布标准
+        // 规定浏览器应该同时支持两种调用顺序
+        // 首先 按 爷爷 爸爸 儿子 顺序看看有没有函数监听
+        // 然后 按 儿子 爸爸 爷爷 顺序看看有没有函数监听
+        // 有监听函数就调用 并提供时间信息 没有就跳过
+
+        // 术语
+        // 事件捕获 从外到内找监听函数
+        // 事件冒泡 从内到外找监听函数
+        // 开发者自己选择把监听函数 放在捕获阶段还是冒泡阶段
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+#app_1 {
+  /* border: 1px solid red; */
+  width: 50vw;
+  height: 50vh;
+}
+#app_1 .output {
+  height: 50px;
+  line-height: 50px;
+}
+
+#app_1 .actions {
+}
+#app_1 .actions button {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}

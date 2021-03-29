@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>资料来演 饥人谷</pre>
+    <hr>
+    <script>
+        /*
+        目标 防止用户篡改user_id
+        思路1 加密
+        将user_id加密发送给前端 后端读取user_id时解密
+        此法可行 但是有安全漏洞
+        漏洞 加密后的内容可无限期使用
+        解决方法 JWT
+
+        思路2 把信息隐藏在服务器
+        把用户信息放在服务器的x里 再给信息一个随机的id
+        把随机id发送给浏览器
+        后端下次读取到id 通过x[id]获取用户信息
+        为什么用户无法篡改id 因为ID很长 而且随机
+        x是什么  x是文件 不能用内存 因为断电内存清空
+        这个x又被称为 session(会话)
+
+        
+        */
+
+    </script>
+</body>
+
+</html>

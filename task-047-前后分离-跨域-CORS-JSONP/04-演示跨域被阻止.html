@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>资料来源 饥人谷</pre>
+    <hr>
+    <script>
+        /*
+        跨域 AJAX
+        正常使用 AJAX
+        在qq.com/8888 运行的JS可以访问/friends.json
+
+        黑客偷数据
+        在frank.com/9990 运行的JS不可以访问
+        浏览器需要CORS
+
+        问题
+        黑客的请求发送成功？？ 成功 因为qq.com后台有log
+        黑客拿到响应？？ 没有 因为浏览器不给数据
+
+        浏览器都限制跨域 如果不限制 就是浏览器bug了
+
+        // 在引入百度jQuery的实验中
+        // 可以使用script src引入
+        // 但是使用AJAX引用被拒绝
+
+        // 其他疑问
+        为什么 a.qq.com qq.com 也算跨域
+            因为历史上 出现过不同公司 共用域名 
+            a.qq.com qq.com 不一定是同一个网站 浏览器谨慎起见 认为是不同的源 
+        
+        为什么不同端口也算跨域 
+            原因同上 一个公司一个端口 
+            安全链条的强度取决于最弱一环 任何安全相关的问题都要谨慎对待
+        
+        为什么两个网站的IP是一样的 也算跨域 
+            原因同上 ip可以共用 
+        
+        为什么可以跨域使用CSS JS 图片 
+            同源策略限制的是数据访问 我们引用CSS JS 和 图片的时候 其实不知道其内容 我们只是在引用
+            
+
+
+
+
+
+
+        */
+    </script>
+</body>
+
+</html>

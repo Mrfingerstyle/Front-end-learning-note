@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        最小知识原则
+
+        MVC 代码
+        代价
+            有时候会有一些多余的代码
+            有时候遇到特殊情况不知道变通 比如没有html模块怎么做mvc  
+
+        表驱动编程
+            出现大批重复代码 
+            把重要的数据做成哈希表再遍历 可以简化代码
+            这是数据结构相关
+
+        事不过三 
+            代码三遍 应该抽象出一个函数
+            属性三遍 应该做成共用属性 
+            原型三遍 应该用继承 
+        
+        俯瞰全局 
+            把所有对象看成点 
+            一个点和一个点怎么通信
+            一个点和多个点怎么通信
+            多个点和多个点怎么通信
+            最终找出一个专用的点负责通信 
+            这个点就是event bus 事件总线
+
+        view = render(data)
+        比起操作对象 直接render简单
+        只改变data 就可以得到对应的view 
+        render粗犷渲染比DOM操作浪费性能 
+        后续会用到虚拟DOM 
+        虚拟DOM能让render只更新该更新的部分
+        
+            
+
+        */
+    </script>
+</body>
+
+</html>

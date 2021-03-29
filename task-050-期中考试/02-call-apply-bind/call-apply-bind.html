@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        ```javascript
+        // call() 调用一个函数, 其具有一个指定的this值和分别地提供的参数
+        let per = {
+            name: 'frank',
+            sayHi() {
+                console.log('hello ' + this.name);
+            }
+        }
+        // 手动把person传入函数中 作为this
+        per.sayHi.call(per)
+
+        // apply() 调用一个具有给定this值的函数，以及作为一个数组（或类似数组对象）提供的参数
+        var arr = [1, 2, 3, 4, 5]
+        var mim = Math.min.apply(null, arr)
+        var max = Math.max.apply(null, arr)
+        Array.prototype.push(arr, [0, 9, 8])
+
+        // bind() 创建一个新的函数， 当这个新函数被调用时其this置为提供的值，其参数列表前几项置为创建时指定的参数序列
+        let person = { name: "lee", age: 10 };
+        let person2 = { name: "tom", age: 18 };
+        function myFn() {
+            console.log(this.name)
+        }
+        var fn = myFn.bind(person); //创建指定this为person的函数fn
+        var fn2 = myFn.bind(person2);//创建指定this为person2的函数fn2
+        fn(); // lee
+        fn2(); //tom
+
+        setTimeout(function () {
+            console.log(this)
+        }.bind({ name: "duck" }), 1000)
+        //{name:"duck"}
+
+        ```
+        // 相同点：
+        // 都可以重置函数的this ，改变函数的执行环境为函数提供参数不同点：
+        // call与 apply 用来调用函数， 
+        // bind用来创建一个新的函数call 为函数提供的参数是一个个罗列出来的参数列表，
+        // apply提供的是一个数组，bind的参数是函数的预设值，函数调用时添加的参数向后追加
+
+        // 不同点：
+        // call与 apply 用来调用函数， bind用来创建一个新的函数
+        // call 为函数提供的参数是一个个罗列出来的参数列表，
+        // apply提供的是一个数组，
+        // bind的参数是函数的预设值，函数调用时添加的参数向后追加
+    </script>
+</body>
+
+</html>
