@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>
+        资料来源 饥人谷
+
+        非完整版不支持从HTML里获取视图
+        完整版 支持
+
+        非完整版本 存在的意义 更加独立
+
+        如何使用Vue实例 
+        方法1 从HTML得到视图
+            也就是文档里说的完整版Vue 
+            从CDN引用vue.js vue.min.js可以得到
+            也可以通过import 引用 vue.js vue.min.js
+
+        方法2 使用JS构建视图 
+            vue.runtime.js 
+            这种方法相对于第一种不方便 
+            但是体积小30%左右
+            没有complier
+            在打包的时候自己翻译 
+            用户下载的时候下载非完整版
+            yarn build 调用 vue-loader 调用 complier 
+        
+        方法3 使用vue-loader 
+            这样对SEO不友好 
+        
+        SEO 搜素引擎优化 
+            可以认为搜索引擎不停的curl  
+            搜索引擎根据curl结果猜测页面内容 
+            如果你的页面都是用JS创建div 那么curl就找不到了
+
+            怎么办 
+            给 curl一点内容
+            把 title description keyword h1 a 写好即可
+
+        不是达到什么水平才能写什么 
+        而是先去写出来 才能达到一定水平 
+
+        总结
+            深入理解两种版本的区别
+            vue完整版                           vue非完整版
+            有complier                              无
+            视图写在html里 或这些在template        写在render函数里用h来创建标签
+            cdn引入vue.js                       vue.runtime.js 
+            webpack引入默认使用非完整版  使用完整版需要额外配置
+            @vue/cli引入默认使用非完整版  使用完整版需要额外配置
+
+            最佳实践  总是使用非完整版 然后诶和vue-loader 和 vue 文件 
+            思路
+                保证用户体验 用户下载的js文件体积更小 只支持h函数
+                保证开发体验 开发者可直接在vue文件中写html标签 而不写h函数
+                脏活让loader做 vue-loader把vue文件里的HTML转为h函数
+                
+            
+
+
+
+        
+        
+
+
+        
+
+        
+
+
+
+
+    </pre>
+</body>
+
+</html>
