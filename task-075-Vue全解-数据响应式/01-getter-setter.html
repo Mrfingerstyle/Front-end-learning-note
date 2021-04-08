@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Vue对data做了什么
+
+        */
+        let obj_2 = {
+            name_1: 'name_1',
+            name_2: 'name_2',
+            get name() {
+                return this.name_1 + " " + this.name_2
+            }
+        }
+        console.log(obj_2.name);
+
+        let obj_3 = {
+            name_1: 'name_1',
+            name_2: 'name_2',
+            get name() {
+                return this.name_1 + " " + this.name_2
+            },
+            set name(xxx) {
+                this.name_1 = xxx[0]
+                this.name_2 = xxx.slice(1)
+            }
+        }
+        obj_3.name = 'ly'
+        console.log(obj_3.name);
+
+        console.log(obj_3);
+
+
+    </script>
+</body>
+
+</html>

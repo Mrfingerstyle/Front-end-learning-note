@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let data_0 = {
+            n: 0
+        }
+
+        // 1 Object.defineProperty定义n
+        let data_1 = {}
+        Object.defineProperty(data_1, 'n', {
+            value: 0
+        })
+        console.log(data_1.n);
+
+        // 2 设置的n不能小于0
+        let data_2 = {}
+        // 用来偷偷存储n的值
+        data_2._n = 0
+        Object.defineProperty(data_2, 'n', {
+            get() {
+                return this._n
+            },
+            set(value) {
+                if (value < 0) return
+                this._n = value
+            }
+        })
+        console.log(data_2.n);
+        data_2.n = -1
+        console.log('设置 -1 失败 ' + data_2.n);
+        data_2.n = 1
+        console.log('设置 1 成功 ' + data_2.n);
+
+        // 3 如果对方直接使用data._n呢
+        // 如何避免别人访问
+        // 使用代理
+
+        // 括号里的是匿名对象 无法访问
+        let data_3 = proxy({ data: { n: 0 } })
+        // 结构赋值
+        function proxy({ data }) {
+            const obj = {}
+            // 这里的n写死了 理论上应该遍历data的所有key
+            Object.defineProperty(obj, 'n', {
+                get() {
+                    return data.n
+                },
+                set(value) {
+                    if (value < 0) return
+                    data.n = value
+                }
+            })
+            return obj
+            // obj就是代理
+        }
+
+        console.log('------');
+        console.log(data_3.n);
+        data_3.n = -1
+        console.log('设置 -1 失败 ' + data_3.n);
+        data_3.n = 1
+        console.log('设置 1 成功 ' + data_3.n);
+
+        let myData = {
+            n: 0
+        }
+        let data_4 = proxy({ data: myData })
+        console.log('----绕过 使用myData修改了n');
+        console.log(data_4.n);
+        myData.n = -1
+        console.log(data_4.n);
+
+        // 5 拦截用户的修改
+
+
+        function proxy2({ data }) {
+            // 监听逻辑
+            let value = data.n
+            Object.defineProperty(data, 'n', {
+                get() {
+                    return value
+                },
+                set(newValue) {
+                    if (newValue < 0) return
+                    value = newValue
+                }
+            })
+            // 代理逻辑
+            const obj = {}
+
+            Object.defineProperty(obj, 'n', {
+                get() {
+                    return data.n
+                },
+                set(value) {
+                    if (value < 0) return
+                    data.n = value
+                }
+            })
+            return obj
+        }
+        let myData_5 = { n: 0 }
+        let data_5 = proxy2({ data: myData_5 })
+
+        console.log('----555');
+        console.log(data_5.n);
+        myData_5.n = -1
+        console.log(data_5.n);
+        myData_5.n = 1
+        console.log(data_5.n);
+
+        // 看下面代码
+        let data_5 = proxy2({ data: myData_5 })
+        const vm = new Vue({
+            data: {
+                n: 0
+            }
+        })
+
+        // 小结 
+        // Object.defineProperty
+        // 给对象添加属性 
+        // 给对象添加setter getter 
+        // setter getter可以对属性的读写进行监控
+
+        // 代理 设计模式
+        // 对myData对象的读写 全权由另一个对象vm负责
+        // 那么vm就是 myData的代理 
+
+        // vm = new Vue({data: myData})
+        // vm 成为 myData的代理 
+        // 对myData的所有的属性进行监控
+        // 为什么要监控 为了防止myData的属性改变 vm不知道
+        // vm知道以后就可以调用render(data)
+        // UI = render(data)
+        // 同理 如果data有多个属性 n m k 
+        // 那么就会有getn getm getk 等
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

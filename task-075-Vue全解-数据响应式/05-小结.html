@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>
+
+    // 小结
+    // Object.defineProperty
+    // 给对象添加属性
+    // 给对象添加setter getter
+    // setter getter可以对属性的读写进行监控
+    
+    // 代理 设计模式
+    // 对myData对象的读写 全权由另一个对象vm负责
+    // 那么vm就是 myData的代理
+    
+    // vm = new Vue({data: myData})
+    // vm 成为 myData的代理
+    // 对myData的所有的属性进行监控
+    // 为什么要监控 为了防止myData的属性改变 vm不知道
+    // vm知道以后就可以调用render(data)
+    // UI = render(data)
+    // 同理 如果data有多个属性 n m k
+    // 那么就会有getn getm getk 等
+
+    // 全程在myData上修改 
+    // 理解 data 才能学习 compute watch 
+    
+</pre>
+
+</body>
+
+</html>

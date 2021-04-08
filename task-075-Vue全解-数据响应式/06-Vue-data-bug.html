@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        响应式
+        Vue的data是响应式的
+        Vue2 通过Object.defineProperty实现数据响应式
+        */
+
+        /*
+        const vm = new Vue({
+            data: {
+                n: 0
+            }
+        })
+        */
+
+        // 如果修改vm.n UI中的n就会响应
+
+        // 面试 不问常态问变态 
+
+        // vue有bug 
+        // 如果 Object.defineProperty 没有加 n 属性 
+        // 只检查对象的第一层
+        // 例如 data: {a:0}
+        // 使用了 data.b
+
+        // 不会在页面渲染出data.b 
+        // 因为一开始b不存在
+
+        // 解决方法
+        // 1 所有key都声明好
+        // 2 使用Vue.set  or Vue.$set  
+
+
+
+
+    </script>
+</body>
+
+</html>
