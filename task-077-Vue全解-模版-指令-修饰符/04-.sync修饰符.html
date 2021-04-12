@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // .sync 特别重要
+        // 常见数据场景
+        // 我把一个数据给你 你要改变数据的时候要通知我
+
+        // .sync修饰符
+        // Vue规则 组件不能修改props外部数据
+        // Vue规则 $emit 可以触发事件 并传参
+        // Vue规则 $event 可以获取 $emit的参数
+
+        // 这种参数狠常见
+        // <child :money="total" v-on:update:money="total=$event"/>
+        // 等价
+        // <child :money.sync="total"/>
+
+        // .sync 语法糖 
+
+
+    </script>
+</body>
+
+</html>

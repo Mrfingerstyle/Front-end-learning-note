@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 1 -->
+    <!-- <div id="xxx">
+        {{n}}
+        <button @click='add'>+ 1</button>
+    </div> -->
+    <div id="xxx">
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.10/vue.js"></script>
+    <script>
+        // 1 Vue完整版 写在HTML里
+        // new Vue({
+        //     el: '#xxx',
+        //     data() {
+        //         return {
+        //             n: 0
+        //         }
+        //     },
+        //     methods: {
+        //         add() {
+        //             this.n += 1
+        //         }
+        //     }
+        // })
+
+        // 2 Vue完整版 模版写在选项里
+        // 注意 html中的div#xxx会被替换掉
+        new Vue({
+            el: '#xxx',
+            data() {
+                return {
+                    n: 0
+                }
+            },
+            template: `
+            <div id="xxx">
+                {{n}}
+                <button @click='add'>+ 1</button>
+            </div>
+            `,
+            methods: {
+                add() {
+                    this.n += 1
+                }
+            }
+        })
+
+        // 第三种方式 Vue非完整版 配合xxx文件
+        // xxx.vue中的template内容是XML内容 必须有闭合标签
+        // XML标签内容哼容易适配编译器
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

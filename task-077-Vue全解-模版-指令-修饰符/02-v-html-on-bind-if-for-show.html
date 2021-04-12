@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            模版内语法
+            展示内容
+            表达式
+                {{obj.a}} 表达式
+                {{n + 1}} 可以写运算
+                {{fn(n)}} 调用函数 默认在methods中寻找
+                如果值为 undefined null 就不显示
+                另一种写法是 <div v-text="表达式"></div> 很少使用
+
+            html内容
+                假设data.x 的值为<strong>hi</strong>
+                <div v-html="x"></div>即可显示粗体的hi
+
+            只想展示{{n}} 原始数据
+            <div v-pre>{{n}}</div>
+            v-pre不会对模版进行编译
+
+            绑定属性
+            <img v-bind:src="src" />
+            // 简写
+            <img :src="src" />
+
+            // 绑定事件
+            <button v-on:click='add'>+ 1</button>
+            // 缩写
+            <button @click='add'>+ 1</button>
+
+            // 条件判断
+            // if-else
+            
+            // v-for 循环 in 对象或数组
+            <li v-for="(u, index) in users" :key="index">index: {{index}} value: {{u.name}}</li>
+            :key="index" 有bug 后续说
+            // 一定要有 :key="index"
+
+            // 把具有唯一性的值放在key里面
+
+            // 显示 隐藏 v-show
+            <div v-show="n % 2 === 0">n是偶数</div>
+            <div v-bind:style="{display: n % 2 === 0 ? 'block': 'none'}">n是偶数</div>
+            // 注意 看得见的元素的display不只是block
+            // 如 table 的display为table 
+            // li的display为table 
+
+            // 总结
+            // Vue模版主要特点
+            // 使用XML语法
+            // 使用{{}}插入表达式
+            // v-html v-on v-bind等指令操作DOM
+                
+            // v-ifv-for等指令实现判断和循环
+        */
+    </script>
+</body>
+
+</html>
