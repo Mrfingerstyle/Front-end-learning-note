@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        directives
+        mixins
+        extends
+        provide
+        inject
+
+        内置指令
+            v-on v-bind v-if v-fr
+        自定义指令
+            造出 v-x
+            两种写法
+                声明一个全局指令
+                Vue.directive('x', {
+                inserted: function(el){
+                    el.addEventListener('click', ()=>{
+                    console.log('x');
+                    })
+                }
+                })
+                声明一个局部指令
+                directives: {
+                x: {
+                inserted(el) {
+                    el.addEventListener("click", () => {
+                    console.log("x");
+                    });
+                },
+                },
+                },
+        */
+
+        // directiveOptions
+        // 5个函数属性
+        // bind(el, info, vnode, oldVnode)
+        // inserted 
+        // update
+        // componentUpdated
+        // unbind
+
+        // 写一个v-on2 不用v-on 的 v-on
+
+        // 指令的作用
+        // 主要用于DOM操作 
+            // Vue实例/组件用于数据绑定 事件监听 DOM更新 
+            // Vue指令主要目的就是原生DOM操作
+
+        // 减少重复
+            // 如果某个DOM操作比较 复杂 或经常使用 就可以封装为指令
+
+
+
+
+
+    </script>
+</body>
+
+</html>
