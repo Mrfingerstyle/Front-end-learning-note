@@ -1,0 +1,74 @@
+<template>
+    <div id="app">
+        {{user}}
+        <hr>
+        login in
+        <form @submit.prevent="onSubmit" action="">
+            <div>
+                <label for="">
+                    <span>
+                        用户名
+                    </span>
+                    <!-- <input type="text" v-model.number.trim="user.username"> -->
+                    <!-- <input type="text" :value="user.username" @input="user.username = $event.target.value"> -->
+
+                    <MyInput v-model="user.username" />
+                </label>
+                <br>
+                <label>
+                    <span>
+                        密码
+                    </span>
+                    <input type="password" v-model.lazy="user.password">
+                </label>
+                <br>
+                <button type="submit">登陆</button>
+            </div>
+        </form>
+
+        <hr>
+
+    </div>
+
+
+
+</template>
+
+<script>
+    // import HelloWorld from './components/HelloWorld.vue'
+    import MyInput from './MyInput'
+
+    export default {
+        methods: {
+            onSubmit() {
+                console.log(this.user);
+            }
+        },
+        name: 'App',
+        components: {
+            // HelloWorld
+            MyInput
+        },
+        data() {
+            return {
+                message: 'hi',
+                x: '',
+                array: [
+                    { text: 'cc', value: 1 },
+                    { text: 'hh', value: 2 },
+                    { text: 'tt', value: 3 }
+                ],
+                user: {
+                    username: '',
+                    password: ''
+                }
+            }
+        }
+    }
+</script>
+
+<style>
+    * {
+        font-size: 30px;
+    }
+</style>
