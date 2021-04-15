@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            font-size: 30px;
+            border: 1px solid #000;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        #app {
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 这种模式适合非浏览器的页面 -->
+    <!-- memory模式 -->
+    <!-- 如 react native  -->
+    <!-- weex -->
+
+
+    <a class="link" href="/1">1</a>
+    <a class="link" href="/2">2</a>
+    <a class="link" href="/3">3</a>
+    <a class="link" href="/4">4</a>
+
+    <div id="app"></div>
+    <div id="div404" style="display: none;">内容不存在</div>
+
+    <script>
+        const app = document.querySelector('#app')
+        const div1 = document.createElement('div')
+        div1.innerHTML = '1'
+        const div2 = document.createElement('div')
+        div2.innerHTML = '2'
+        const div3 = document.createElement('div')
+        div3.innerHTML = '3'
+        const div4 = document.createElement('div')
+        div4.innerHTML = '4'
+
+        const routeTable = {
+            // 修改路径名
+            "/": div1,
+            "/1": div1,
+            "/2": div2,
+            "/3": div3,
+            "/4": div4
+        }
+
+        function route(container) {
+            // 获取元素
+            // let number = window.location.hash.substr(1)
+            // 获取路径名
+            // let number = window.location.pathname
+            let number = window.localStorage.getItem('xxx')
+
+            // console.log(number);
+
+            // number = number || 1
+            if (!number) {
+                number = "/1"
+            }
+
+            // console.log(number);
+            // console.log(typeof number);
+            let div = routeTable[number]
+            // 渲染界面
+            if (!div) {
+                div = document.querySelector('#div404')
+            }
+            div.style.display = 'block'
+            // 显示界面
+            container.innerHTML = ''
+            container.appendChild(div)
+        }
+
+        // 禁止自动刷新
+        const allA = document.querySelectorAll("a.link")
+        // console.log(allA);
+
+        // 阻止默认事件
+        for (let a of allA) {
+            a.addEventListener('click', e => {
+                e.preventDefault()
+                const href = a.getAttribute('href')
+                window.localStorage.setItem('xxx', href)
+                // 通知
+                onStateChange(href)
+            })
+        }
+
+        route(app)
+
+        function onStateChange() {
+            console.log("state 变了");
+            route(app);
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

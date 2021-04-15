@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            font-size: 30px;
+            border: 1px solid #000;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        #app {
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#1">1</a>
+    <a href="#2">2</a>
+    <a href="#3">3</a>
+    <a href="#4">4</a>
+    <div id="app"></div>
+    <div id="div1" style="display: none;">1</div>
+    <div id="div2" style="display: none;">2</div>
+    <div id="div3" style="display: none;">3</div>
+    <div id="div4" style="display: none;">4</div>
+    <div id="div404" style="display: none;">内容不存在</div>
+
+    <script>
+        function route() {
+            // 获取元素
+            let number = window.location.hash.substr(1)
+            let app = document.querySelector('#app')
+            number = number || 1
+            let div = document.querySelector(`#div${number}`)
+            // 渲染界面
+            if (!div) {
+                div = document.querySelector('#div404')
+            }
+            div.style.display = 'block'
+            // 显示界面
+            if (app.children.length > 0) {
+                app.children[0].style.display = 'none'
+                document.body.appendChild(app.children[0])
+            }
+            app.appendChild(div)
+        }
+
+        route()
+
+        window.addEventListener('hashchange', () => {
+            route()
+        })
+
+
+    </script>
+    <script>
+        // 路由是什么
+
+        // 路由 分发请求 这个设备就是路由器
+        // 分发请求的对象
+
+        // 前端领域的路由
+
+        // 路由表
+
+        // 存储到达目标地址路径的表
+
+        // hash #之后的内容 /#1
+
+        // 默认路由
+
+        // 404路由 或者保底路由
+        // 如果输入frank 报错
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
