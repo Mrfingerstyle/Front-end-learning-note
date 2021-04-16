@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .fade-leave-active {
+            transition: all 2s;
+        }
+
+        .fade-leave-to {
+            opacity: 0;
+            width: 100px;
+        }
+
+        p {
+            border: 1px solid #000;
+            width: 300px;
+            background: white;
+        }
+
+        /* 淡入的第一帧 */
+        .fade-enter {
+            background: red;
+        }
+
+        /* 淡入动画开始 */
+        .fade-enter-active {
+            transition: all 1s;
+        }
+
+        /* 淡入过程的最后一帧 */
+        /* 一般不需要加 */
+        .fade-enter-to {
+            background: black;
+            opacity: .5;
+            width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.5.17/vue.min.js"></script>
+    <div id="demo">
+        <button v-on:click="visible = !visible">
+            Toggle
+        </button>
+        <transition name="fade">
+            <p v-if="visible">hello</p>
+        </transition>
+    </div>
+    <script>
+        new Vue({
+            el: '#demo',
+            data: {
+                visible: true
+            }
+        })
+    </script>
+</body>
+
+</html>

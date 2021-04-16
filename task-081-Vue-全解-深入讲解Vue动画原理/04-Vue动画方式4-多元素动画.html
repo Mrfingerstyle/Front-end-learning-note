@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .fade-enter-active,
+        .fade-leave-active {
+            transition: all 1s;
+        }
+
+        .fade-enter {
+            opacity: 0;
+            background: red;
+            transform: translateX(100px);
+
+        }
+
+        .fade-leave-to {
+            opacity: 0;
+            background: red;
+            transform: translateX(-100px);
+
+        }
+
+        #example-4 {
+            position: relative;
+            padding: 100px;
+        }
+
+        button {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.5.17/vue.min.js"></script>
+    <div id="example-4">
+        <transition name='fade' mode="out-in">
+            <button key="on" v-if="status === 'off'" @click="status = 'on'">on</button>
+            <button key="off" v-else @click="status = 'off'">off</button>
+        </transition>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#example-4',
+            data() {
+                return {
+                    status: 'on'
+                }
+            },
+            methods: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>
