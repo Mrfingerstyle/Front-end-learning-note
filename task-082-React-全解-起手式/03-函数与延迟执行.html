@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // React会促使使用者加强JS基础
+
+        // 对比普通代码和函数
+
+        let a = 1
+        let f = a + 1
+        let b = f()
+
+        // 普通代码立即求值
+        // 函数会在调用时在求值 即延迟求值 且求值时才会读取a的最新值
+
+        // react元素 和 函数组件
+        // App1 = React.createElement('div', { className: 'red' }, n), React元素
+        // App2 = () => React.createElement('div', { className: 'red' }, n), React函数组件
+        // app2是延迟执行的代码 会在被调用的时候执行
+        // 此处说的是代码执行的时机
+
+        // React元素
+        // createElement返回的element可以代表一个div 
+        // 但是element并不是真正的div DOM对象
+        // 所以一般称element为虚拟DOM对象
+
+        // ()=>React元素
+        // 返回的element 也可以代表一个div 
+        // 这个函数可以多次执行 每次得到最新的虚拟div
+        // React会对比两个虚拟div 发现差异 局部更新视图
+        // 找不同的算法 DOM diff 算法
+
+        // 但是这种代码写法比较丑陋
+    </script>
+</body>
+
+</html>
