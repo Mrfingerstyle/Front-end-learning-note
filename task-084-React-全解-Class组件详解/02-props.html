@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // props 外部数据
+
+        // 初始化 
+        class B extends React.Component {
+            constructor(props) {
+                super(props)
+            }
+            render() {
+                return (
+                    <div onClick={this.props.onClick}>
+                        {this.props.name}
+                        <div>
+                            {this.props.children}
+                        </div>
+                    </div>
+                )
+            }
+        }
+        // 要么不初始化 即不写constructor
+        // 要么初始化 且必须写全套 不写super直接报错
+        // 效果 
+        // 这么做了之后 this.props就是外部数据对象的地址了
+
+        // 读取
+        // 通过 this.props.xxx 读取
+
+        // 写props
+        // 不准写props
+
+        // 改props的值  一个地址
+        // 没有意义 既然是外部数据 应该由外部更新
+        // 改props的属性
+        // 没有意义 既然是外部数据 不应该从内部改值
+
+        // 原则 应该由数据的主人对数据进行更改
+
+    //     componentWillReceiveProps(newProps, nextContent){
+    //     // 旧props
+    //     console.log(this.props);
+    //     // 新props
+    //     console.log(newProps);
+    //     console.log('props 变化了');
+    // }
+
+    // props作用 
+    // 接受外部数据
+    // 只能读不能写
+    // 外部数据由父组件传递
+
+    // 接受外部函数 
+    // 在恰当的时机 调用该函数 
+    // 该函数一般是父组件的函数
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

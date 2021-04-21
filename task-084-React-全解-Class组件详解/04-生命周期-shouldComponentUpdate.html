@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 生命周期 life cycle
+        // 类比如下代码
+
+        // create or constructor
+        let div = document.createElement('div')
+        // 初始化state
+        div.textContent = '1'
+        // 挂载 mount
+        document.body.appendChild(div)
+        // update
+        div.textContent = '2'
+        // un mount过程
+        div.remove()
+
+        // react组件也有这些过程  我们称为生命周期
+        // 常用生命周期
+        // constructor()
+        // 初始化props 
+        // 初始化state 但此时不能调用
+        // 用来写bind this
+
+        // 在这里初始化state
+        // shouldComponentUpdate()
+        // 返回true 表示不阻止UI更新
+        // 返回false 表示阻止UI更新
+        // 手动判断是否进行组件更新 可以根据使用场景灵活设置返回值 
+        // 避免不必要的更新 
+
+        // render()
+        // 创建虚拟dom
+
+        // componentDidMount()
+        // 组件已经出现在页面
+        // componentDidUpdate()
+        // 组件已更新
+        // componentWillUn mount()
+        // 组件将死
+
+        // PureComponent 会在 render 之前对比新 state 和旧 state 的每一个 key，以及新 props 和旧 props 的每一个 key。
+        // 如果所有 key 的值全都一样，就不会 render；如果有任何一个 key 的值不同，就会 render。
+    </script>
+</body>
+
+</html>

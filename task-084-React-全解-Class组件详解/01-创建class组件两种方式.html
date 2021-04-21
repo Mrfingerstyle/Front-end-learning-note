@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // derived 派生的
+        // render
+        // super class 超类
+        // property 
+        // state 
+        // mount 
+
+        // ES5 方式 过时
+        // 因为ES5不支持class 才会有这种方式
+        const A = React.createClass({
+            render() {
+                return (
+                    <div>hi</div>
+                )
+            }
+        })
+        export default A
+
+        // ES6 方式
+        class B extends React.Component {
+            constructor(props) {
+                super(props)
+            }
+            render() {
+                return (
+                    <div>hi</div>
+                )
+            }
+        }
+        export default B
+        // 关键字强行记忆
+        // 推荐ES6
+
+        // 浏览器不支持ES6 
+        // 不推荐IE8
+        // webpack + babel 将ES6翻译为ES5即可
+
+        // 
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
