@@ -14,7 +14,10 @@
         // 视图更新后执行代码
         // 此处也可以发起ajax请求 用于更新数据
         // 首次渲染不会执行此钩子
-        // 
+        // 在此处使用setState引起无限循环 除非放在if中
+        // 如果shouldComponentUpdate返回false 则不会触发此钩子
+
+        // 参数 看文档
     </script>
 </body>
 

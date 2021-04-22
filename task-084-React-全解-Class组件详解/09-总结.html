@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 分阶段看钩子执行顺序
+
+        // 首次渲染 
+            // constructor
+            // render
+            // 更新UI
+            // componentDidMount
+
+        // 再次渲染 
+            // props改变了 setState() foreUpdate()
+            // shouldComponentUpdate() 看是否需要更新
+            // render()
+            // 更新UI
+            // componentDidUpdate()
+
+        // 销毁 
+            // componentWillUn mount
+
+        // 生命周期回顾
+            // constructor()
+            // shouldComponentUpdate()
+            // render()
+            // componentDidMount() 组件出现在页面上
+            // componentDidUpdate() 组件已更新
+            // componentWillUn mount() 组件将死
+
+        // 一般优先使用函数组件 
+        // 在class组件中 优先使用Pure
+
+
+
+    </script>
+</body>
+
+</html>
