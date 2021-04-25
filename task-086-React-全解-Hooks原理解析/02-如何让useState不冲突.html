@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 02-如何让useState不冲突
+        // 如果一个组件使用了两个useState怎么办
+        // 由于所有数据都存在_state中 所以会冲突
+
+        // 改进思路 
+        // 1 把_state做成一个对象
+        // 比如
+        // _state = {m: 0, n: 0}
+        // 不行 因为useState(0)不知道变量叫m还是n
+
+        // 2 把_state做成一个数组
+        // _state = [0, 0]
+
+    </script>
+</body>
+
+</html>

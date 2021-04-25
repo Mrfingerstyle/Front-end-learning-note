@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // _state数组方案的缺点 太依赖调用顺序
+        // useState调用顺序
+        // 若第一次渲染 n 是第一个 
+        // m 第二个
+        // k 第三个
+        // 第二次渲染时必须保证顺序完全一致
+
+        // 问题
+        // App用了_state index 其他组件用什么
+        // 给每个组件创建一个 _state index 
+
+        // 放在全局作用域里重命名了怎么办
+        // 放在组件对应的虚拟节点对象上
+
+        /*
+        总结
+        每个函数组件对应一个react节点
+        每个节点保存state index 
+        use state会读取state[index]
+        index由use state出现的顺序决定
+        set state会修改state 并触发更新 
+        
+        */
+    </script>
+</body>
+
+</html>
