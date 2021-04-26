@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // React Hooks
+            // useState 状态
+            // useEffect 副作用
+            // useContext 上下文
+            // Redux useReducer
+            // 记忆 useMemo
+            // 引用 useRef 
+            // 自定义 Hook
+
+            // 注意 1
+    // 不可局部更新 否则改变整个对象
+    // 因为setState不会帮我们合并属性
+
+    // setUser({
+    // ...user,
+    // name: 'jack'
+    // })
+
+    // 注意 2 地址要变
+    // setState(obj) 如果obj地址不变 那么React认为数据没有变化
+    // user.name = 'jack'
+    // setUser(user)
+
+    // 注意 3 接受函数
+    // setN(n + 1)
+    // setN(n + 1)
+
+    // useState接受函数
+    // 该函数返回初始state 且执行1次
+
+    // setState接受函数 连续多次操作 建议使用函数
+
+    </script>
+</body>
+
+</html>
